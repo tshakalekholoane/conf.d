@@ -1,0 +1,16 @@
+# See the following for reference https://github.com/nicklockwood/SwiftFormat.
+# Default rules.
+--acronyms true
+--indent 2
+--binarygrouping 4
+--decimalgrouping 3
+--hexliteralcase "lowercase"
+# --markcategories false
+--swiftversion 5.5.2
+
+# Opt-in rules.
+--enable acronyms
+--enable blockComments
+# --enable organizeDeclarations
+--enable preferDouble
+--enable sortedSwitchCases

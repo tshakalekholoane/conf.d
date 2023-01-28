@@ -1,0 +1,41 @@
+                                   Git Setup
+ 
+SIGNED COMMITS
+
+  1. Check for existing GPG keys locally.
+
+    brew install gnupg
+    gpg --list-secret-keys --keyid-format=long
+
+  2. Generate a new GPG key.
+
+  If there are no existing keys, generate a new pair. Wong (2020, p. 149) 
+  recommends the use of the ed25519 signature algorithm.
+
+    gpg --full-generate-key
+
+  After following the instructions, retrieve the key ID for use in the next 
+  steps.
+
+    gpg --list-secret-keys --keyid-format=long
+    gpg --armor --export <keyid>
+
+  3. Add the new GPG key to GitHub.
+
+  Go to your settings on GitHub and paste the public key.
+
+  4. Tell Git about your signing key.
+
+    git config --global user.signingkey <keyid>
+
+  5. Sign commits.
+
+  Automate signing commits.
+
+    git config --global commit.gpgsign true
+
+REFERENCES
+
+  - https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification#gpg-commit-signature-verification
+
+                                5 DECEMBER 2022
