@@ -28,7 +28,7 @@ case $1 in
       fi
     done
 
-    find "$WD/etc" -name ".*" | while read src; do
+    find "$WD/etc" -name ".*" -maxdepth 1 | while read src; do
       dst="$(echo "$src" | sed 's/conf.d\/etc\///')"
       ln -sf "$src" "$dst"
     done
@@ -43,7 +43,7 @@ case $1 in
       fi
     done
 
-    find "$WD/etc" -name ".*" | while read src; do
+    find "$WD/etc" -name ".*" -maxdepth 1 | while read src; do
       link=$(echo $src | sed 's/conf.d\/etc\///')
       if [[ -e "$link" ]]; then
         unlink "$link"
