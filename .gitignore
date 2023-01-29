@@ -1,6 +1,9 @@
 .DS_Store
 
 etc/.config/*
+
+!etc/.config/alacritty/
+
 !etc/config/fish/
 etc/.config/fish/completions/
 etc/.config/fish/fish_variables
