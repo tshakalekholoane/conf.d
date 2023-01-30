@@ -13,8 +13,8 @@ set --export x "$HOME/x"
 set --export CLICOLOR 1
 
 set --export cc (basename (fd -1 '^gcc-\d+$' /usr/local/bin/))
-set --export cdflags "-Og -Wall -Wextra -g3 -pedantic -std=c2x -fsanitize=address"
-set --export crflags "-O3 -Wall -Wextra -pedantic -std=c2x"
+set --export cdflags -std=c2x -Og -g3 -Wall -Wextra -pedantic -fsanitize=address -fno-omit-frame-pointer
+set --export crflags -std=c2x -O3 -Wall -Wextra -pedantic
 
 set --export GNUPGHOME "$HOME/.config/gnupg"
 set --export GPG_TTY (tty)
