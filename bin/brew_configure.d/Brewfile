@@ -10,7 +10,6 @@ brew "gcc"
 brew "go"
 brew "gh"
 brew "gnupg"
-brew "helix", args: ["HEAD"]
 brew "jq"
 brew "lua-language-server"
 brew "python"
