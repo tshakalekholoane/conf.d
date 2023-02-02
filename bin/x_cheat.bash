@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Prints a cheat sheet in $CONFIGS/cheat.d.
 
+DIR="$HOME/conf.d/bin/x_cheat.d"
 PROG="$(basename "$0")"
-DIR="$HOME/conf.d/bin/$PROG.d"
 
 case "$1" in
   "" | "-h")
