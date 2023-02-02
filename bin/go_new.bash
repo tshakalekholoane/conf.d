@@ -1,6 +1,8 @@
 #!/usr/bin/env bash 
 # Creates a new Go project.
 
+set -e
+
 PROG="$(basename "$0")"
 
 if [[ $# -eq 0 ]]; then
