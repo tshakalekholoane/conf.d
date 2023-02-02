@@ -8,7 +8,7 @@
 # See the following for reference: 
 # - https://developer.apple.com/library/archive/technotes/tn2450/_index.html
 
-read -d '' DICT << _EOF_
+read -d '' MAPPING << _EOF_
 {
   "UserKeyMapping": [
     {
@@ -26,4 +26,4 @@ read -d '' DICT << _EOF_
   ]
 }
 _EOF_
-hidutil property --set "$DICT"
+hidutil property --set "$MAPPING"
