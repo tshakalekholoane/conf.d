@@ -4,6 +4,7 @@ abbr --add --global less "less -FIRX"
 abbr --add --global ll "ls -lhAF"
 abbr --add --global ls "ls -F"
 abbr --add --global md "x_md"
+abbr --add --global pkg "x_pkg"
 
 set --export conf "$HOME/conf.d"
 set --export dl "$HOME/Downloads"
