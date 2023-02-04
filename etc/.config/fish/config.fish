@@ -20,7 +20,10 @@ set --export crflags -std=c2x -O3 -Wall -Wextra -pedantic
 set --export GNUPGHOME "$HOME/.config/gnupg"
 set --export GPG_TTY (tty)
 
-fish_add_path --global ~/bin /usr/local/go/bin ~/go/bin ~/.cargo/bin
+fish_add_path --global ~/bin ~/go/bin ~/.cargo/bin
+
+# XXX: On Linux.
+# fish_add_path /usr/local/go/bin 
 
 fish_hybrid_key_bindings
 set fish_cursor_default block

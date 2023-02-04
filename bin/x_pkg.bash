@@ -31,6 +31,10 @@ case "$1" in
 		usage
 		;;
 	"install")
+		if [[ -e "$SRC_DIR/$2" ]]; then
+			printf "%s: source already exists\n" $PROG
+			exit 1
+		fi
 		cd "$SRC_DIR"
 		load_instructions $2
 		"$2"::install
