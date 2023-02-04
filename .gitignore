@@ -4,11 +4,14 @@ etc/.config/*
 
 !etc/.config/alacritty/
 
+!etc/.config/fish/
+etc/.config/fish/completions/
+etc/.config/fish/fish_variables
+
 !etc/.config/gnupg/
 etc/.config/gnupg/*
 !etc/.config/gnupg/gpg.conf
 !etc/.config/gnupg/gpg-agent.conf
 
-!etc/.config/fish/
-etc/.config/fish/completions/
-etc/.config/fish/fish_variables
+!etc/.config/helix/
+etc/.config/helix/runtime
