@@ -6,5 +6,5 @@ cat > Makefile << _EOF_
 .PHONY: help
 help:
 	@echo 'Usage:'
-	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -s ':' -t | sed -e 's/^/ /'
+	@sed -n 's/^##//p' \${MAKEFILE_LIST} | column -t -s ':' | sed -e 's/^/ /'
 _EOF_
