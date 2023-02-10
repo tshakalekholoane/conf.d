@@ -1,8 +1,10 @@
 .DS_Store
+.ropeproject
 
 etc/.config/*
 
 !etc/.config/alacritty/
+!etc/.config/colourd/
 
 !etc/.config/fish/
 etc/.config/fish/completions/
