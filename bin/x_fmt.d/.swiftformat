@@ -6,11 +6,10 @@
 --decimalgrouping 3
 --hexliteralcase "lowercase"
 # --markcategories false
---swiftversion 5.5.2
+--swiftversion 5.7.1
 
 # Opt-in rules.
 --enable acronyms
---enable blockComments
 # --enable organizeDeclarations
 --enable preferDouble
 --enable sortedSwitchCases
