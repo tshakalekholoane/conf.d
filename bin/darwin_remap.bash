@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Remaps the following keys on macOS.
 #
-# - Right Alt -> Right Ctrl 
+# - Right Alt -> Right Ctrl
 # - Esc -> Caps Lock
 # - Caps Lock -> Esc
 #
-# See the following for reference: 
+# See the following for reference:
 # - https://developer.apple.com/library/archive/technotes/tn2450/_index.html
 
 read -d '' MAPPING << _EOF_

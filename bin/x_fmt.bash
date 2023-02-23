@@ -5,7 +5,7 @@
 DIR="$HOME/conf.d/bin/x_fmt.d"
 PROG="$(basename "$0")"
 
-declare -A files 
+declare -A files
 files["rust"]="rustfmt.toml"
 files["swift"]=".swiftformat"
 

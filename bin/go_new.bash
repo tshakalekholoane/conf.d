@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 # Creates a new Go project.
 
 set -e
@@ -23,4 +23,3 @@ func main() {
 }
 _EOF_
 git init
-

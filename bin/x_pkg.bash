@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Minimal package manager. To add a package, create a Bash script in 
-# x_pkg.d and implement the functions install and upgrade for that 
+# Minimal package manager. To add a package, create a Bash script in
+# x_pkg.d and implement the functions install and upgrade for that
 # package e.g. package_name::install () { # Installation logic.; }.
 
 set -e

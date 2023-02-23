@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 # Purges Git commit history from a repository.
 
 read -p "Are you sure? [y/N] "

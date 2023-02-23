@@ -1,6 +1,6 @@
-#!/usr/bin/env bash 
-# Contains logic for creating and removing symbolic links for 
-# configuration files. 
+#!/usr/bin/env bash
+# Contains logic for creating and removing symbolic links for
+# configuration files.
 
 BIN="$HOME/bin"
 PROG="$(basename "$0")"
