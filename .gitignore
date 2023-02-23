@@ -1,10 +1,14 @@
 .DS_Store
 .ropeproject
+.vscode
 
 etc/.config/*
 
 !etc/.config/alacritty/
 !etc/.config/colourd/
+!etc/.config/nvim/
+etc/.config/nvim/lazy-lock.json
+etc/.config/nvim/lua/.luarc.json
 
 !etc/.config/fish/
 etc/.config/fish/completions/
