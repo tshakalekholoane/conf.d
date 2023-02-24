@@ -6,18 +6,19 @@ abbr --add --global ls "ls -F"
 abbr --add --global md "x_md"
 abbr --add --global pkg "x_pkg"
 abbr --add --global v "nvim_run"
+abbr --add --global vf "nvim_run (fzf)"
 
 set --export conf ~/conf.d
 set --export dl ~/Downloads
 set --export dsk ~/Desktop
 set --export x ~/x
 
-set --export CLICOLOR 1
-
 set --export cc (basename (fd -1 '^gcc-\d+$' /usr/local/bin/))
 set --export cdflags -std=c2x -Og -g3 -Wall -Wextra -pedantic -fsanitize=address -fno-omit-frame-pointer
 set --export crflags -std=c2x -O3 -Wall -Wextra -pedantic
 
+set --export CLICOLOR 1
+set --export FZF_DEFAULT_COMMAND "fd --type file --follow --hidden --exclude .git"
 set --export GNUPGHOME ~/.config/gnupg
 set --export GPG_TTY (tty)
 
