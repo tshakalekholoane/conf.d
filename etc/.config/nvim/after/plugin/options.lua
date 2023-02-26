@@ -2,7 +2,6 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.g.rust_recommended_style = 0
 vim.g.rustfmt_autosave = 1
-vim.opt.autowriteall = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 0
 vim.opt.colorcolumn = "72,80"
@@ -41,13 +40,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Autosave.
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
   callback = function()
-    local exclude_buffer = { "nofile", "nowrite", "prompt", "terminal" }
-    for _, buffer_type in pairs(exclude_buffer) do
-      if vim.bo.buftype == buffer_type then
-        return
-      end
+    if vim.bo.buftype ~= "" then
+      return
     end
-    vim.cmd("update")
+    vim.cmd.update()
   end,
   pattern = "*",
 })
