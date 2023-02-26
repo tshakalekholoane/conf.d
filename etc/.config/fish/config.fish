@@ -18,6 +18,7 @@ set --export cdflags -std=c2x -Og -g3 -Wall -Wextra -pedantic -fsanitize=address
 set --export crflags -std=c2x -O3 -Wall -Wextra -pedantic
 
 set --export CLICOLOR 1
+set --export EDITOR (which nvim)
 set --export FZF_DEFAULT_COMMAND "fd --type file --follow --hidden --exclude .git"
 set --export GNUPGHOME ~/.config/gnupg
 set --export GPG_TTY (tty)
