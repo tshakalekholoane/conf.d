@@ -1,6 +1,6 @@
 colourd::setup() {
 	make release
-	ln -sf "$PWD/colourd" "$HOME/bin/colourd"
+	ln -sf "${PWD}/colourd" "${HOME}/bin/colourd"
 }
 
 colourd::install() {

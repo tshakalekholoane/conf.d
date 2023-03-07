@@ -3,8 +3,8 @@
 
 PROG="$(basename "$0")"
 
-if [[ $# -eq 0 ]]; then
-  printf "usage:\t%s\tfile...\n" $PROG
+if [[ "$#" -eq 0 ]]; then
+  printf "usage:\t%s file...\n" "${PROG}"
   exit
 fi
 

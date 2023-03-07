@@ -26,4 +26,4 @@ read -d '' MAPPING << _EOF_
   ]
 }
 _EOF_
-hidutil property --set "$MAPPING"
+hidutil property --set "${MAPPING}"

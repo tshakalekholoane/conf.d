@@ -1,6 +1,6 @@
 helix::setup() {
 	cargo install --locked --path helix-term
-	ln -sf $PWD/runtime $HOME/.config/helix/runtime
+	ln -sf "${PWD}/runtime" "${HOME}/.config/helix/runtime"
 	hx --grammar fetch && hx --grammar build
 }
 
