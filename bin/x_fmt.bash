@@ -6,6 +6,7 @@ DIR="${HOME}/conf.d/bin/x_fmt.d"
 PROG="$(basename "$0")"
 
 declare -A files
+files["c"]=".clang-format"
 files["rust"]="rustfmt.toml"
 files["swift"]=".swiftformat"
 
