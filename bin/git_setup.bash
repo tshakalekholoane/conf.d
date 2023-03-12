@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Configures Git.
 
-git config --global user.name "Tshaka Lekholoane"
-git config --global user.email "_@tshaka.co"
-git config --global core.editor nvim 
+git config --global core.editor "$(which nvim)"
 git config --global init.defaultBranch main
+git config --global user.email "mail+git@tshaka.dev"
+git config --global user.name "Tshaka Lekholoane"
