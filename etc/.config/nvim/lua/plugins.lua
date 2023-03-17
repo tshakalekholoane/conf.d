@@ -1,21 +1,15 @@
-local plugin_manager_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(plugin_manager_path) then
+local path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local bootstrapped = vim.loop.fs_stat(path)
+if not bootstrapped then
   print("plugins: cloning plugin manager")
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    plugin_manager_path,
-  })
+  vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", path })
+  vim.cmd.packadd("packer.nvim")
 end
-vim.opt.rtp:prepend(plugin_manager_path)
 
 local plugins = {
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
+    requires = {
       "L3MON4D3/LuaSnip",
       "hrsh7th/cmp-nvim-lsp",
       "saadparwaiz1/cmp_luasnip",
@@ -23,34 +17,49 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    requires = { "nvim-lua/plenary.nvim" },
   },
   "lewis6991/gitsigns.nvim",
   "neovim/nvim-lspconfig",
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    version = "*",
+    requires = { "nvim-lua/plenary.nvim" },
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-    cond = function()
-      return vim.fn.executable "make" == 1
-    end,
+    run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && " ..
+        "cmake --build build --config Release && cmake --install build --prefix build"
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-    version = false,
+    run = ":TSUpdate",
+    requires = { "nvim-treesitter/nvim-treesitter-textobjects" },
   },
   "nvim-treesitter/nvim-treesitter-context",
   "sainnhe/gruvbox-material",
   "simrat39/rust-tools.nvim",
   "tpope/vim-commentary",
   "tpope/vim-sleuth",
+  "wbthomason/packer.nvim",
   "windwp/nvim-autopairs",
 }
 
-require("lazy").setup(plugins)
+local packer = require("packer")
+packer.startup({
+  function(use)
+    for _, plugin in ipairs(plugins) do
+      use(plugin)
+    end
+
+    if not bootstrapped then
+      packer.sync()
+    end
+  end,
+  config = {
+    display = {
+      open_fn = function()
+        return require("packer.util").float()
+      end,
+    },
+  },
+})
