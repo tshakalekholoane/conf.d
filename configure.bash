@@ -22,7 +22,7 @@ case "$1" in
     exit
     ;;
   -i)
-    for src in "${DIR}/bin/*"; do
+    for src in ${DIR}/bin/*; do
       if [[ ! -d "${src}" ]]; then
         dst="$(echo "${src}" | rg '\.\w+$' --replace '' | sed 's/conf.d\///')"
         chmod +x "${src}"
@@ -36,7 +36,7 @@ case "$1" in
     done
     ;;
   -u)
-    for src in "${DIR}/bin/*"; do
+    for src in ${DIR}/bin/*; do
       if [[ ! -d "${src}" ]]; then
         link="$(echo "${src}" | rg '\.\w+$' --replace '' | sed 's/conf.d\///')"
         if [[ -e "${link}" ]]; then
