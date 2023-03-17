@@ -1,22 +1,17 @@
-DEFAULT_TAG="go1.20"
+LATEST="go1.20.2"
 
 go::setup() {
-  git checkout $DEFAULT_TAG
-	cd src
-	./all.bash
-
-	# XXX: Additional setup is required on Linux to remove (and create) 
-	# /usr/local/go/bin.
-
-	sudo cp -f ../bin/* /usr/local/bin/
+  git checkout "${LATEST}"
+  cd src
+  ./all.bash
 }
 
 go::install() {
   git clone https://go.googlesource.com/go && cd go
-	go::setup 
+  go::setup
 }
 
 go::upgrade() {
   git fetch
-	go::setup
+  go::setup
 }

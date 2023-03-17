@@ -27,6 +27,7 @@ fish_add_path --global ~/.cargo/bin ~/bin ~/go/bin
 
 # XXX: On Linux.
 # fish_add_path /usr/local/go/bin 
+fish_add_path --global ~/.cargo/bin ~/bin ~/go/bin ~/src/go/bin
 
 fish_hybrid_key_bindings
 set fish_cursor_default block
