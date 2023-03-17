@@ -10,7 +10,7 @@ PROG="$(basename "$0")"
 DIR="${HOME}/src"
 
 usage() {
-	printf "usage:\t%s [-h] [install|upgrade] <package>\n" "${PROG}"
+	printf "usage:\t%s [-h] {install,upgrade} <package>\n" "${PROG}"
 }
 
 load_instructions() {
