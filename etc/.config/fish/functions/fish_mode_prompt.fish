@@ -3,21 +3,18 @@ function fish_mode_prompt --description "Custom vi mode prompt."
   # https://github.com/fish-shell/fish-shell/blob/master/share/functions/fish_default_mode_prompt.fish.
   switch $fish_bind_mode
   case default
-    set_color --bold red
-    echo "NOR"
+    set_color black --background white --bold 
+    set mode "NOR"
   case insert
-    set_color --bold green
-    echo "INS"
-  case replace_one 
-    set_color --bold green
-    echo "REP"
-  case replace
-    set_color --bold cyan
-    echo "REP"
+    set_color black --background blue --bold 
+    set mode "INS"
+  case replace, replace_one 
+    set_color black --background magenta --bold 
+    set mode "REP"
   case visual
-    set_color --bold magenta
-    echo "VIS"
+    set_color black --background red --bold 
+    set mode "VIS"
   end
+  printf " %s " $mode
   set_color normal
-  echo -n " "
 end
