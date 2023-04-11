@@ -14,13 +14,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "WinEnter" }, {
 function current_mode()
   local prefix = vim.fn.mode():sub(1, 1):lower()
   if prefix == "i" then
-    return "%2* INSERT %*"
+    return "%2* INS %*"
   elseif prefix == "n" then
-    return "%3* NORMAL %*"
+    return "%3* NOR %*"
   elseif prefix == "r" then
-    return "%1* REPLACE %*"
+    return "%1* REP %*"
   elseif prefix == "v" then
-    return "%4* VISUAL %*"
+    return "%4* VIS %*"
   else
     return ""
   end
