@@ -29,8 +29,7 @@ case "$1" in
         ln -sf "${src}" "${dst}"
       fi
     done
-
-    find "${DIR}/etc" -name ".*" -maxdepth 1 | while read src; do
+    find "${DIR}/etc" -maxdepth 1 -name ".*" | while read src; do
       dst="$(echo "${src}" | sed 's/conf.d\/etc\///')"
       ln -sf "${src}" "${dst}"
     done
@@ -44,8 +43,7 @@ case "$1" in
         fi
       fi
     done
-
-    find "${DIR}/etc" -name ".*" -maxdepth 1 | while read src; do
+    find "${DIR}/etc" -maxdepth 1 -name ".*" | while read src; do
       link="$(echo "${src}" | sed 's/conf.d\/etc\///')"
       if [[ -e "${link}" ]]; then
         unlink "${link}"
