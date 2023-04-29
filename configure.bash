@@ -22,6 +22,9 @@ case "$1" in
     exit
     ;;
   -i)
+    if [[ ! -d ${BIN} ]]; then
+      mkdir ${BIN}
+    fi
     for src in ${DIR}/bin/*; do
       if [[ ! -d "${src}" ]]; then
         dst="$(echo "${src}" | rg '\.\w+$' --replace '' | sed 's/conf.d\///')"
