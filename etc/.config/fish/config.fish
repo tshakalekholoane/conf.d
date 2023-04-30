@@ -14,8 +14,8 @@ set --export dsk ~/Desktop
 set --export x ~/x
 
 set --export cc (basename (fd -1 '^gcc-\d+$' /usr/local/bin/))
-set --export cdflags -std=c2x -Og -g3 -Wall -Wextra -pedantic
-set --export crflags -std=c2x -O3 -Wall -Wextra -pedantic
+set --export cdflags -std=gnu2x -Og -g3 -Wall -Wextra -pedantic
+set --export crflags -std=gnu2x -O3 -Wall -Wextra -pedantic
 set --export csan -fsanitize=address -fno-omit-frame-pointer
 
 set --export CLICOLOR 1
