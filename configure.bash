@@ -2,12 +2,10 @@
 # Contains logic for creating and removing symbolic links for
 # configuration files.
 
-BIN="${HOME}/bin"
 PROG="$(basename "$0")"
-DIR="${HOME}/conf.d"
 
 usage() {
-  printf "usage:\t%s [-hiu]\n" "${PROG}"
+  printf "usage:\t%s {help,install,uninstall}\n" "${PROG}"
 }
 
 if [[ "$#" -gt 1 ]]; then
@@ -17,28 +15,36 @@ if [[ "$#" -gt 1 ]]; then
 fi
 
 case "$1" in
-  "" | -h)
+  "" | help)
     usage
     exit
     ;;
-  -i)
-    if [[ ! -d ${BIN} ]]; then
-      mkdir ${BIN}
+  install)
+    if [[ ! -d ~/bin ]]; then
+      mkdir ~/bin
     fi
-    for src in ${DIR}/bin/*; do
+    for src in ~/conf.d/bin/*; do
       if [[ ! -d "${src}" ]]; then
         dst="$(echo "${src}" | rg '\.\w+$' --replace '' | sed 's/conf.d\///')"
         chmod +x "${src}"
         ln -sf "${src}" "${dst}"
       fi
     done
-    find "${DIR}/etc" -maxdepth 1 -name ".*" | while read src; do
+    if [[ -d ~/.config ]]; then
+      mv ~/.config ~/.config~
+    fi
+    find ~/conf.d/etc -maxdepth 1 -name ".*" | while read src; do
       dst="$(echo "${src}" | sed 's/conf.d\/etc\///')"
       ln -sf "${src}" "${dst}"
     done
+    if [[ -d ~/.config~ ]]; then
+      shopt -s dotglob
+      mv ~/.config/* ~/.config/
+      rmdir ~/.config~
+    fi
     ;;
-  -u)
-    for src in ${DIR}/bin/*; do
+  uninstall)
+    for src in ~/conf.d/bin/*; do
       if [[ ! -d "${src}" ]]; then
         link="$(echo "${src}" | rg '\.\w+$' --replace '' | sed 's/conf.d\///')"
         if [[ -e "${link}" ]]; then
@@ -46,7 +52,7 @@ case "$1" in
         fi
       fi
     done
-    find "${DIR}/etc" -maxdepth 1 -name ".*" | while read src; do
+    find ~/conf.d/etc -maxdepth 1 -name ".*" | while read src; do
       link="$(echo "${src}" | sed 's/conf.d\/etc\///')"
       if [[ -e "${link}" ]]; then
         unlink "${link}"
