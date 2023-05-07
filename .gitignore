@@ -7,6 +7,7 @@ etc/.config/*
 !etc/.config/alacritty/
 !etc/.config/colourd/
 !etc/.config/nvim/
+!etc/.config/tmux/
 etc/.config/nvim/lazy-lock.json
 etc/.config/nvim/lua/.luarc.json
 etc/.config/nvim/plugin/packer_compiled.lua
