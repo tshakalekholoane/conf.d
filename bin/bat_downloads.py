@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """bat_downloads returns a table showing the number of bat
-(https://tshaka.co/x/bat) downloads grouped by release version.
+(https://tshaka.dev/x/bat) downloads grouped by release version.
 """
 
 import requests
