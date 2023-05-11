@@ -3,6 +3,7 @@ vim.g.netrw_liststyle = 3
 vim.g.rust_recommended_style = 0
 vim.g.rustfmt_autosave = 1
 vim.opt.clipboard = "unnamedplus"
+vim.opt.cmdheight = 0
 vim.opt.colorcolumn = "72,80"
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.encoding = "utf-8"

@@ -12,10 +12,12 @@ function main
     usage
     exit
   end
+
   switch "$argv[1]"
-  case dark light
-    set colour_scheme (printf "Gruvbox %s Soft" (echo "$argv[1]" | tr 'dl' 'DL'))
-    fish_config theme choose "$colour_scheme"
+  case dark 
+    fish_config theme save "Catppuccin Frappe"
+  case light
+    fish_config theme save "Catppuccin Latte"
   case "*"
     printf "%s: unrecognised option: %s\n" "$program" "$argv[1]" >&2
     usage >&2

@@ -7,6 +7,7 @@ if not bootstrapped then
 end
 
 local plugins = {
+  { "catppuccin/nvim", as = "catppuccin" },
   {
     "hrsh7th/nvim-cmp",
     requires = {
@@ -21,7 +22,6 @@ local plugins = {
   },
   "lewis6991/gitsigns.nvim",
   "neovim/nvim-lspconfig",
-  "nordtheme/vim",
   {
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim" },
