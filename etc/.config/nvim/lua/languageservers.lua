@@ -28,10 +28,7 @@ local on_attach = function(_, buffer_number)
   vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, buffer_options)
   vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, buffer_options)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, buffer_options)
-  vim.keymap.set("n", "<space>f", function()
-    vim.lsp.buf.format { async = true }
-  end,
-    buffer_options)
+  vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format { async = true } end, buffer_options)
 end
 
 -- Servers configured with their default settings.
@@ -45,8 +42,6 @@ local servers = {
   "jsonls",
   "pyright",
   "ruff_lsp",
-  -- XXX: Build failing.
-  -- "starlark_rust",
 }
 for _, server in ipairs(servers) do
   lspconfig[server].setup {
@@ -90,8 +85,6 @@ lspconfig.gopls.setup {
   settings = {
     gopls = {
       analyses = {
-        -- XXX: The most compact order is not necessarily the most
-        -- efficient.
         fieldalignment = true,
         nilness = true,
         -- XXX: Can generate false positives.
