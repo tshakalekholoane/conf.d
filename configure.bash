@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-# Contains logic for creating and removing symbolic links for
-# configuration files.
+# Create and remove symbolic links for configuration files.
 
-PROG="$(basename "$0")"
+readonly PROGRAM="$(basename "$0")"
 
 usage() {
-  printf "usage:\t%s {help,install,uninstall}\n" "${PROG}"
+  printf "usage:\t%s {help,install,uninstall}\n" "${PROGRAM}"
 }
 
 if [[ "$#" -gt 1 ]]; then
-  printf "%s: invalid number of arguments\n" "${PROG}" >&2
+  printf "%s: invalid number of arguments\n" "${PROGRAM}" >&2
   usage
   exit 1
 fi
@@ -17,50 +16,72 @@ fi
 case "$1" in
   "" | help)
     usage
-    exit
     ;;
   install)
-    if [[ ! -d ~/bin ]]; then
-      mkdir ~/bin
+    printf "%s: linking wallpapers\n" "${PROGRAM}"
+    if [[ ! -d "${HOME}/bg" ]]; then
+      mkdir "${HOME}"/bg
     fi
-    for src in ~/conf.d/bin/*; do
-      if [[ ! -d "${src}" ]]; then
-        dst="$(echo "${src}" | rg '\.\w+$' --replace '' | sed 's/conf.d\///')"
-        chmod +x "${src}"
-        ln -sf "${src}" "${dst}"
+    for target in "${HOME}"conf.d/bg/*; do
+      destination=$(basename "${target}")
+      destination="${HOME}/bg/${destination}"
+      ln -sf "${target}" "${destination}"
+    done
+
+    printf "%s: linking executables\n" "${PROGRAM}"
+    if [[ ! -d "${HOME}/bin" ]]; then
+      mkdir "${HOME}/bin"
+    fi
+    for target in "${HOME}"/conf.d/bin/*; do
+      if [[ ! -d "${target}" ]]; then
+        filename=$(basename "${target}")
+        filename="${filename%.*}"
+        destination="${HOME}/bin/${filename}"
+        chmod +x "${target}"
+        ln -sf "${target}" "${destination}"
       fi
     done
-    if [[ -d ~/.config ]]; then
-      mv ~/.config ~/.config~
+
+    printf "%s: linking configuration files\n" "${PROGRAM}"
+    if [[ -d "${HOME}/.config" ]]; then
+      mv "${HOME}/.config" "${HOME}/.config~"
     fi
-    find ~/conf.d/etc -maxdepth 1 -name ".*" | while read src; do
-      dst="$(echo "${src}" | sed 's/conf.d\/etc\///')"
-      ln -sf "${src}" "${dst}"
+    find "${HOME}/conf.d/etc" -maxdepth 1 -name ".*" | while read target; do
+      destination=$(basename "${target}")
+      destination="${HOME}/${destination}"
+      ln -sf "${target}" "${destination}"
     done
-    if [[ -d ~/.config~ ]]; then
+
+    if [[ -d "${HOME}"/.config~ ]]; then
+      # Enable wildcard patterns such as `*`.
       shopt -s dotglob
-      mv ~/.config/* ~/.config/
-      rmdir ~/.config~
+      mv "${HOME}"/.config~/* "${HOME}"/.config/
+      rmdir "${HOME}"/.config~
     fi
     ;;
   uninstall)
-    for src in ~/conf.d/bin/*; do
-      if [[ ! -d "${src}" ]]; then
-        link="$(echo "${src}" | rg '\.\w+$' --replace '' | sed 's/conf.d\///')"
-        if [[ -e "${link}" ]]; then
-          unlink "${link}"
+    printf "%s: unlinking executables\n" "${PROGRAM}"
+    for target in "${HOME}"/conf.d/bin/*; do
+      if [[ ! -d "${target}" ]]; then
+        filename=$(basename "${target}")
+        filename="${filename%.*}"
+        if [[ -e "${filename}" ]]; then
+          unlink "${filename}"
         fi
       fi
     done
-    find ~/conf.d/etc -maxdepth 1 -name ".*" | while read src; do
-      link="$(echo "${src}" | sed 's/conf.d\/etc\///')"
-      if [[ -e "${link}" ]]; then
-        unlink "${link}"
+
+    printf "%s: unlinking configuration files\n" "${PROGRAM}"
+    find "${HOME}"/conf.d/etc -maxdepth 1 -name ".*" | while read target; do
+      destination=$(basename "${target}")
+      destination="${HOME}/${destination}"
+      if [[ -e "${destination}" ]]; then
+        unlink "${destination}"
       fi
     done
     ;;
   *)
-    printf "%s: unrecognised option: %s\n" "${PROG}" "$1" >&2
+    printf "%s: unrecognised option: %s\n" "${PROGRAM}" "$1" >&2
     usage
     exit 1
     ;;
