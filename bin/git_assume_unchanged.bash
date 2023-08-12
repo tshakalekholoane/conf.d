@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Instructs Git to ignore changes in the given file(s).
 
-PROG="$(basename "$0")"
+readonly PROGRAM="$(basename "$0")"
 
 if [[ "$#" -eq 0 ]]; then
-  printf "usage:\t%s file...\n" "${PROG}"
+  printf "usage:\t%s file...\n" "${PROGRAM}"
   exit
 fi
 

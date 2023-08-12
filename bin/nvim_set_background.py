@@ -8,14 +8,10 @@ import pynvim
 
 parser = ArgumentParser(
     prog="nvim_set_background",
-    description="Sets the background in Neovim via a socket."
+    description="Sets the background in Neovim via a socket.",
 )
 
-parser.add_argument(
-    "background",
-    choices=["dark", "light"],
-    help="colour scheme"
-)
+parser.add_argument("background", choices=["dark", "light"], help="colour scheme")
 
 arguments = parser.parse_args()
 

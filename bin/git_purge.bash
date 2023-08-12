@@ -4,7 +4,7 @@
 read -p "Are you sure? [y/N] "
 case "${REPLY}" in
   y | Y)
-    BRANCH="$(git branch --show-current)"
+    readonly BRANCH="$(git branch --show-current)"
     git checkout --orphan latest
     git add --all
     git commit --all --message="init: initial commit"

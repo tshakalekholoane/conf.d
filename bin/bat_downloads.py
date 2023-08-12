@@ -11,7 +11,7 @@ response = requests.get(url=URL, headers=headers, timeout=10)
 
 total_downloads = 0
 print("ver.\tn")
-print("-" * 6 + '\t' + "-" * 6)
+print("-" * 6 + "\t" + "-" * 6)
 for release in response.json():
     count = release["assets"][0]["download_count"]
     version = release["tag_name"]

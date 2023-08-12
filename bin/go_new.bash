@@ -1,79 +1,61 @@
 #!/usr/bin/env bash
 # Creates a new Go project.
 
-PROG="$(basename "$0")"
+readonly PROGRAM="$(basename "$0")"
 
 usage() {
-  printf "usage:\t%s <module> [-hl]\n" "${PROG}"
+  printf "usage:\t%s [-hl] <module>\n" "${PROGRAM}"
 }
 
-if [[ "$#" -eq 0 ]]; then
-  usage
-  exit
-fi
-
-PKG="$(echo "$1" | rg --only-matching '\w+$')"
-MOD="$1"
-
 module() {
-  mkdir "${PKG}" && cd "${PKG}"
-  go mod init "${MOD}"
+  mkdir "$1" && cd "$1"
+  go mod init "$2"
   go work use . 2> /dev/null
 }
 
-case "$2" in
-  "")
-    module
-    cat > main.go << _EOF_
-package main
+main() {
+  LIBRARY=0
+  while getopts "hl" OPTION; do
+    case "${OPTION}" in
+      h)
+        usage
+        exit
+        ;;
+      l)
+        LIBRARY=1
+        ;;
+      *)
+        usage >&2
+        exit 1
+        ;;
+    esac
+  done
 
-import "fmt"
+  shift $((OPTIND - 1))
 
-func main() {
-  fmt.Println("WUS GOOD?")
-}
-_EOF_
-    ;;
-  -h)
+  if [[ "$#" -eq 0 ]]; then
     usage
     exit
-    ;;
-  -l)
-    module
-    cat > "${PKG}.go" << _EOF_
-package $PKG
+  fi
 
-func Add(a, b int) int { return a + b }
-_EOF_
-    cat > "${PKG}_test.go" << _EOF_
-package $PKG
-
-import "testing"
-
-func TestAdd(t *testing.T) {
-	tests := []struct {
-		inputA, inputB, want int
-	}{
-		{2, 2, 4},
-	}
-
-	for _, test := range tests {
-		t.Run("", func(t *testing.T) {
-			got := Add(test.inputA, test.inputB)
-			if got != test.want {
-				t.Errorf("Add(%d, %d) = %d, want %d", test.inputA, test.inputB, got, test.want)
-			}
-		})
-	}
-}
-_EOF_
-  ;;
-  *)
-    usage
+  readonly DIRECTORY="${HOME}/conf.d/bin/go_new.d"
+  readonly PACKAGE="$(basename "$1")"
+  if [[ -d "${PACKAGE}" ]]; then
+    printf "%s: directory with the same name already exists: %s\n" "${PROGRAM}" "${PACKAGE}" >&2
     exit 1
-    ;;
-esac
+  fi
+  module "${PACKAGE}" "$1"
+  if [[ "${LIBRARY}" -eq 1 ]]; then
+    cp "${DIRECTORY}/package.go" "${PACKAGE}.go"
+    cp "${DIRECTORY}/package_test.go" "${PACKAGE}_test.go"
+    sed -i '' "s/sample_package_name/${PACKAGE}/" "${PACKAGE}.go"
+    sed -i '' "s/sample_package_name/${PACKAGE}/" "${PACKAGE}_test.go"
+  else
+    cp "${DIRECTORY}/binary.go" main.go
+  fi
+  if [[ ! "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = "true" ]]; then
+    git init
+  fi
+}
 
-if [[ ! "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = "true" ]]; then
-  git init
-fi
+main "$@"

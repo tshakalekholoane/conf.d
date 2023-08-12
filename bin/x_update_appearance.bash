@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # Sets the appearance for all terminal applications.
 
-PROG="$(basename "$0")"
+PROGRAM="$(basename "$0")"
 
 usage() {
-  printf "usage:\t%s {dark,light}\n" "${PROG}"
+  printf "usage:\t%s {dark,light}\n" "${PROGRAM}"
 }
 
-if [[ "$#" -eq 0 || "$#" -gt 1 ]]; then
-  usage >&2
-  exit 1
+if [[ "$#" -eq 0 ]]; then
+  usage
+  exit
 fi
 
 case "$1" in
@@ -18,8 +18,8 @@ case "$1" in
     fish_set_theme "$1"
     nvim_set_background "$1"
     ;;
-	*)
-    printf "%s: unrecognised option: %s\n" "${PROG}" "$1" >&2
+  *)
+    printf "%s: unrecognised option: %s\n" "${PROGRAM}" "$1" >&2
     usage
     exit 1
     ;;
