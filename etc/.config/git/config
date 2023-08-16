@@ -1,0 +1,20 @@
+[commit]
+	gpgsign = true
+[core]
+	editor = nvim
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultbranch = main
+[push]
+	autosetupremote = true
+	default = current
+[tag]
+	gpgsign = true
+[user]
+	email = mail+git@tshaka.dev
+	name = Tshaka Lekholoane
+	signingkey = mail+git@tshaka.dev
