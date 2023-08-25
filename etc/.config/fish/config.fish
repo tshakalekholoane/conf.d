@@ -1,6 +1,7 @@
 abbr --add --global a "x_update_appearance"
 abbr --add --global f "x_fmt"
 abbr --add --global less "less -FIRX"
+abbr --add --global licence "x_licence"
 abbr --add --global ll "ls -lhAF"
 abbr --add --global ls "ls -F"
 abbr --add --global m "x_md"
