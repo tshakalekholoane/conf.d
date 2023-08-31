@@ -12,8 +12,6 @@
 [push]
 	autosetupremote = true
 	default = current
-[tag]
-	gpgsign = true
 [user]
 	email = mail+git@tshaka.dev
 	name = Tshaka Lekholoane
