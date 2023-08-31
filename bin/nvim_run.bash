@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Start Neovim with an RPC server listening on a socket which can be
+# used to receive external commands i.e., system background changes.
 
-readonly IDENTIFIER="$(openssl rand -hex 4)"
-NVIM_LISTEN_ADDRESS="/tmp/nvim-${IDENTIFIER}" nvim "$@"
+readonly NVIM_LISTEN_ADDRESS=$(mktemp -u "/tmp/nvim-XX")
+nvim --listen "${NVIM_LISTEN_ADDRESS}" "$@"
