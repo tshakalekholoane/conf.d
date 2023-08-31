@@ -59,7 +59,6 @@ null_ls.setup({
     null_ls.builtins.diagnostics.actionlint,
     null_ls.builtins.diagnostics.buildifier,
     null_ls.builtins.diagnostics.checkmake,
-    null_ls.builtins.diagnostics.commitlint,
     null_ls.builtins.diagnostics.fish,
     null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.swiftlint,
