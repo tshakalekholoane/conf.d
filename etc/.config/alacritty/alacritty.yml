@@ -59,7 +59,7 @@ window:
   dynamic_title: true
 font:
   normal:
-    family: "SF Mono"
+    family: "Source Code Pro"
   size: 12.0
 selection:
   save_to_clipboard: true
