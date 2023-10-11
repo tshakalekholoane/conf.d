@@ -11,4 +11,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "WinEnter" }, {
   callback = current_branch,
 })
 
-vim.opt.statusline = "%-F %m %-r %= %{%v:lua.current_branch()%}  %l,%c %p%%  %y"
+vim.cmd.highlight("OverrideStatusLine guibg=#434c5e guifg=#d8dee9")
+vim.opt.statusline = "%#OverrideStatusLine#%-F %m %-r %= %{%v:lua.current_branch()%}  %l,%c %p%%  %y"

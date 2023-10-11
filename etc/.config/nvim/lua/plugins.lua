@@ -21,6 +21,7 @@ local plugins = {
   },
   "lewis6991/gitsigns.nvim",
   "neovim/nvim-lspconfig",
+  "nordtheme/vim",
   {
     "nvim-telescope/telescope.nvim",
     requires = { "nvim-lua/plenary.nvim" },
