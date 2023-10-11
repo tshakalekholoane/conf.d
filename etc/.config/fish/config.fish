@@ -39,5 +39,4 @@ if not ioreg -p IOUSB | rg "USB Keyboard" &> /dev/null
 end
 
 gpgconf --launch gpg-agent
-nohup colourd >> ~/var/log/colourd.log &
 umask 0002
