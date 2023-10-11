@@ -54,8 +54,8 @@ window:
     x: 0
     y: 0
   padding:
-    x: 8
-    y: 8
+    x: 10
+    y: 10
   dynamic_title: true
 font:
   normal:
