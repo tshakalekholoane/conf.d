@@ -86,7 +86,6 @@ lspconfig.gopls.setup {
       analyses = {
         fieldalignment = true,
         nilness = true,
-        -- XXX: Can generate false positives.
         shadow = true,
         unusedparams = true,
         unusedwrite = true,
