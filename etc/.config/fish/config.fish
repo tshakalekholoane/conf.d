@@ -26,6 +26,8 @@ set --export GNUPGHOME ~/.config/gnupg
 set --export GPG_TTY (tty)
 
 fish_add_path --global ~/.cargo/bin ~/bin ~/go/bin ~/src/go/bin
+fish_add_path --global /usr/local/Cellar/neovim/*/bin
+fish_add_path --global /usr/local/opt/openjdk/bin
 
 fish_hybrid_key_bindings
 set fish_cursor_default block
