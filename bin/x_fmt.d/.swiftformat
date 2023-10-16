@@ -15,4 +15,4 @@
 --enable blankLinesBetweenImports
 --enable docComments
 --enable isEmpty
---enable sortedSwitchCases
+--enable sortSwitchCases
