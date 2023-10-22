@@ -1,5 +1,5 @@
 # `conf.d`
 
 ```
-usage: configure.bash {help,install,uninstall}
+usage: configure.py [--help] {install,uninstall}
 ```
