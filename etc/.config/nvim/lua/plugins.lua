@@ -1,16 +1,22 @@
-local path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local bootstrapped = vim.loop.fs_stat(path)
-if not bootstrapped then
+local plugin_manager_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(plugin_manager_path) then
   print("plugins: cloning plugin manager")
-  vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", path })
-  vim.cmd.packadd("packer.nvim")
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    plugin_manager_path,
+  })
 end
+vim.opt.rtp:prepend(plugin_manager_path)
 
 local plugins = {
   { "catppuccin/nvim", as = "catppuccin" },
   {
     "hrsh7th/nvim-cmp",
-    requires = {
+    dependencies = {
       "L3MON4D3/LuaSnip",
       "hrsh7th/cmp-nvim-lsp",
       "saadparwaiz1/cmp_luasnip",
@@ -18,49 +24,34 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
   "lewis6991/gitsigns.nvim",
   "neovim/nvim-lspconfig",
   {
     "nvim-telescope/telescope.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    version = "*",
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && " ..
-        "cmake --build build --config Release && cmake --install build --prefix build"
+    build = "make",
+    cond = function()
+      return vim.fn.executable "make" == 1
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    requires = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    build = ":TSUpdate",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    version = false,
   },
   "nvim-treesitter/nvim-treesitter-context",
   "sainnhe/gruvbox-material",
   "simrat39/rust-tools.nvim",
   "tpope/vim-commentary",
   "tpope/vim-sleuth",
-  "wbthomason/packer.nvim",
   "windwp/nvim-autopairs",
 }
 
-local packer = require("packer")
-packer.startup({
-  function(use)
-    for _, plugin in ipairs(plugins) do
-      use(plugin)
-    end
-
-    if not bootstrapped then
-      packer.sync()
-    end
-  end,
-  config = {
-    display = {
-      open_fn = function()
-        return require("packer.util").float()
-      end,
-    },
-  },
-})
+require("lazy").setup(plugins)
