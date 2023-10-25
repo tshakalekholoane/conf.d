@@ -14,11 +14,6 @@ set --export dl ~/Downloads
 set --export dsk ~/Desktop
 set --export x ~/x
 
-set --export cc (basename (fd -1 '^gcc-\d+$' /usr/local/bin/))
-set --export cdflags -std=gnu2x -Og -g3 -Wall -Wextra -pedantic
-set --export crflags -std=gnu2x -O3 -Wall -Wextra -pedantic
-set --export csan -fsanitize=address -fno-omit-frame-pointer
-
 set --export CLICOLOR 1
 set --export EDITOR (which nvim)
 set --export FZF_DEFAULT_COMMAND "fd --type file --follow --hidden --exclude .git"
