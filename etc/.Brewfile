@@ -26,6 +26,7 @@ cask "arc"
 cask "discord"
 cask "font-source-code-pro"
 cask "github"
+cask "kitty"
 cask "notion"
 cask "rectangle"
 cask "virtualbox" if Hardware::CPU.intel?
