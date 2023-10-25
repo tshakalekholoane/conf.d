@@ -24,7 +24,10 @@ set --export FZF_DEFAULT_OPTS "\
 set --export GNUPGHOME ~/.config/gnupg
 set --export GPG_TTY (tty)
 
-fish_add_path --global ~/.cargo/bin ~/bin ~/go/bin ~/src/go/bin
+if test (uname -m) = "arm64"
+  eval (/opt/homebrew/bin/brew shellenv)
+end
+fish_add_path --global ~/.cargo/bin ~/bin ~/go/bin
 
 fish_hybrid_key_bindings
 set fish_cursor_default block
