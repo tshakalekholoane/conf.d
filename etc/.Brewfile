@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "tshakalekholoane/taps"
 
+brew "bash"
 brew "bash-language-server"
 brew "black"
 brew "can"
