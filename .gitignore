@@ -4,7 +4,6 @@
 
 etc/.config/*
 
-!etc/.config/colourd/
 !etc/.config/git/
 !etc/.config/kitty/
 !etc/.config/nvim/
