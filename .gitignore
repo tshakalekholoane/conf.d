@@ -4,7 +4,6 @@
 
 etc/.config/*
 
-!etc/.config/alacritty/
 !etc/.config/colourd/
 !etc/.config/git/
 !etc/.config/kitty/
