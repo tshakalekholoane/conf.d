@@ -33,6 +33,7 @@ fish_hybrid_key_bindings
 set fish_cursor_default block
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
+function fish_mode_prompt; end
 
 # Remap keys if the USB keyboard is not connected (it is harder to pick 
 # out the Bluetooth keyboard).
