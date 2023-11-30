@@ -10,6 +10,7 @@ etc/.config/*
 !etc/.config/tmux/
 etc/.config/nvim/lazy-lock.json
 etc/.config/nvim/lua/.luarc.json
+etc/.config/nvim/spell/*.spl
 
 !etc/.config/fish/
 etc/.config/fish/completions/
