@@ -42,7 +42,7 @@ local options = {
     "yaml",
   },
   endwise = { enable = true },
-  highlight = { enable = true, },
+  highlight = { enable = true },
   indent = { enable = true, disable = { "python" } },
   incremental_selection = {
     enable = true,
