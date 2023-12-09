@@ -37,6 +37,7 @@ brew "vscode-langservers-extracted"
 
 cask "arc"
 cask "discord"
+cask "font-intel-one-mono"
 cask "font-source-code-pro"
 cask "github"
 cask "kitty"
