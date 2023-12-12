@@ -5,15 +5,12 @@ readonly DIRECTORY="${HOME}/conf.d/bin/x_snip.d"
 readonly PROGRAM="$(basename "$0")"
 
 usage() {
-  printf "usage: %s [-i] <lang> <snippet>\n" "${PROGRAM}"
+  printf "usage: %s [-hl] <lang> <snippet>\n" "${PROGRAM}"
 }
 
 main() {
-  while getopts "hil" OPT; do
+  while getopts "hl" OPT; do
     case "${OPT}" in
-      i)
-        inline=1
-        ;;
       h)
         usage
         exit
@@ -42,12 +39,7 @@ main() {
     printf "%s: no such snippet: %s\n" "${PROGRAM}" "$(basename "${SNIPPET}")"
     exit 1
   fi
-
-  if [[ "${inline}" -eq 1 ]]; then
-    sed -e '1d;$d' "${SNIPPET}"
-  else
-    cat "${SNIPPET}"
-  fi
+  cat "${SNIPPET}"
 }
 
 main "$@"
