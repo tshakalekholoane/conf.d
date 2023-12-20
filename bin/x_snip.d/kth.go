@@ -23,7 +23,7 @@ func part[T cmp.Ordered](a []T, l, r int) int {
 	return j
 }
 
-func kth[T cmp.Ordered](a []T, k int) (T, []T) {
+func kth[T cmp.Ordered](a []T, k *int) []T {
 	n := len(a)
 	rand.Shuffle(n, func(i, j int) { a[i], a[j] = a[j], a[i] })
 	l, r := 0, n-1
@@ -34,8 +34,10 @@ func kth[T cmp.Ordered](a []T, k int) (T, []T) {
 		} else if i < k {
 			l = i + 1
 		} else {
-			return a[i], a
+			*k = a[i]
+			return a
 		}
 	}
-	return a[l], a
+	*k = a[l]
+	return a
 }
