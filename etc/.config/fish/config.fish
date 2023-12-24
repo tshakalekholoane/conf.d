@@ -17,10 +17,6 @@ set --export x ~/x
 set --export CLICOLOR 1
 set --export EDITOR (which nvim)
 set --export FZF_DEFAULT_COMMAND "fd --type file --follow --hidden"
-set --export FZF_DEFAULT_OPTS "\
---color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
---color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
---color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 set --export GNUPGHOME ~/.config/gnupg
 set --export GPG_TTY (tty)
 
@@ -36,8 +32,8 @@ set fish_cursor_replace_one underscore
 function fish_mode_prompt; end
 
 if test (uname -s) = "Darwin"
-  # Remap keys if the USB keyboard is not connected (it is harder to pick 
-  # out the Bluetooth keyboard).
+  # Remap keys if the USB keyboard is not connected (it is harder to 
+  # pick out the Bluetooth keyboard).
   if not ioreg -p IOUSB | rg "USB Keyboard" &> /dev/null
     darwin_remap 1> /dev/null
   end

@@ -14,12 +14,6 @@ vim.opt.rtp:prepend(path)
 
 local plugins = {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false,
-    priority = 1000,
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "L3MON4D3/LuaSnip",
@@ -27,12 +21,18 @@ local plugins = {
       "saadparwaiz1/cmp_luasnip",
     },
   },
-  { "folke/neodev.nvim",       opts = {} },
+  {
+    "folke/neodev.nvim",
+    opts = {}
+  },
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-  { "lewis6991/gitsigns.nvim", opts = {} },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {}
+  },
   "neovim/nvim-lspconfig",
   {
     "nvim-telescope/telescope.nvim",
@@ -57,7 +57,11 @@ local plugins = {
   "simrat39/rust-tools.nvim",
   "tpope/vim-commentary",
   "tpope/vim-sleuth",
-  { "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {}
+  },
 }
 
 local lazy = require "lazy"
