@@ -23,7 +23,7 @@ local plugins = {
   },
   {
     "folke/neodev.nvim",
-    opts = {}
+    opts = {},
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -31,7 +31,7 @@ local plugins = {
   },
   {
     "lewis6991/gitsigns.nvim",
-    opts = {}
+    opts = {},
   },
   "neovim/nvim-lspconfig",
   {
@@ -60,7 +60,7 @@ local plugins = {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = {}
+    opts = {},
   },
 }
 
