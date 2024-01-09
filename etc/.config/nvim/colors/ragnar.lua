@@ -56,7 +56,7 @@ local groups = {
   SpellCap = { sp = palette.sky, underline = true },
   SpellLocal = { sp = palette.salmon, underline = true },
   StatusLine = { bg = palette.liquorice, fg = palette.snow },
-  Title = { fg = palette.carnation, bold = true },
+  Title = { fg = palette.snow, bold = true },
   Visual = { bg = palette.jet, bold = true },
   WarningMsg = { fg = palette.cantaloupe },
 }
