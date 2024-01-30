@@ -1,7 +1,6 @@
 local completions = require "cmp_nvim_lsp"
 local configuration = require "lspconfig"
 local general = require "null-ls"
-local rust = require "rust-tools"
 local utilities = require "lspconfig.util"
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic" })
@@ -132,15 +131,6 @@ configuration.lua_ls.setup {
   },
 }
 
--- rust-tools.nvim embeds rust-analyzer and requires a slightly
--- different configuration.
-rust.setup({
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-})
-
 configuration.sourcekit.setup({
   capabilities = capabilities,
   on_attach = on_attach,
@@ -148,3 +138,14 @@ configuration.sourcekit.setup({
   filetypes = { "objective-c", "objective-cpp", "swift" },
   root_dir = utilities.root_pattern("Package.swift", ".git"),
 })
+
+vim.g.rustaceanvim = {
+  tools = {},
+  server = {
+    on_attach = on_attach,
+    settings = {
+      ["rust-analyzer"] = {},
+    },
+  },
+  dap = {},
+}

@@ -33,6 +33,11 @@ local plugins = {
     "lewis6991/gitsigns.nvim",
     opts = {},
   },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    ft = { "rust" },
+  },
   "neovim/nvim-lspconfig",
   {
     "nvim-telescope/telescope.nvim",
@@ -54,7 +59,6 @@ local plugins = {
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
   },
   "nvim-treesitter/nvim-treesitter-context",
-  "simrat39/rust-tools.nvim",
   "tpope/vim-commentary",
   "tpope/vim-sleuth",
   {
