@@ -43,6 +43,7 @@ local groups = {
   DiffText = {},
   ErrorMsg = { fg = palette.salmon },
   Folded = { bg = palette.lead, fg = palette.steel },
+  IncSearch = { bg = palette.jet, bold = true },
   LineNr = { fg = palette.steel },
   MatchParen = { fg = palette.strawberry },
   MoreMsg = {},
