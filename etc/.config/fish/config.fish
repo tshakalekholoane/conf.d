@@ -1,4 +1,3 @@
-abbr --add --global a "x_update_appearance"
 abbr --add --global c "chmod +x"
 abbr --add --global f "x_fmt"
 abbr --add --global less "less -FIRX"
