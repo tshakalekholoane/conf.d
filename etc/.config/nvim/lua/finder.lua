@@ -1,6 +1,6 @@
-local builtin = require "telescope.builtin"
-local telescope = require "telescope"
-local themes = require "telescope.themes"
+local builtin       = require "telescope.builtin"
+local telescope     = require "telescope"
+local themes        = require "telescope.themes"
 
 local configuration = {
   pickers = {
@@ -12,7 +12,7 @@ local configuration = {
 
 local function find_in_file()
   builtin.current_buffer_fuzzy_find(themes.get_dropdown {
-    winblend = 10,
+    winblend  = 10,
     previewer = false,
   })
 end

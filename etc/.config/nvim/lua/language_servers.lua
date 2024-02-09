@@ -1,7 +1,7 @@
-local completions = require "cmp_nvim_lsp"
+local completions   = require "cmp_nvim_lsp"
 local configuration = require "lspconfig"
-local general = require "null-ls"
-local utilities = require "lspconfig.util"
+local general       = require "null-ls"
+local utilities     = require "lspconfig.util"
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic" })
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
@@ -53,7 +53,7 @@ local servers = {
 for _, server in ipairs(servers) do
   configuration[server].setup {
     capabilities = capabilities,
-    on_attach = on_attach,
+    on_attach    = on_attach,
   }
 end
 
@@ -80,24 +80,24 @@ general.setup({
 })
 
 configuration.gopls.setup {
-  capabilities = capabilities,
-  cmd = { "gopls", "serve" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  on_attach = on_attach,
-  root_dir = utilities.root_pattern("go.work", "go.mod", ".git"),
+  capabilities        = capabilities,
+  cmd                 = { "gopls", "serve" },
+  filetypes           = { "go", "gomod", "gowork", "gotmpl" },
+  on_attach           = on_attach,
+  root_dir            = utilities.root_pattern("go.work", "go.mod", ".git"),
   single_file_support = true,
-  settings = {
+  settings            = {
     gopls = {
-      analyses = {
+      analyses    = {
         fieldalignment = true,
-        nilness = true,
-        shadow = true,
-        unusedparams = true,
-        unusedwrite = true,
-        useany = true,
+        nilness        = true,
+        shadow         = true,
+        unusedparams   = true,
+        unusedwrite    = true,
+        useany         = true,
         unusedvariable = true,
       },
-      gofumpt = true,
+      gofumpt     = true,
       staticcheck = true,
     },
   },
@@ -109,41 +109,39 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()
     vim.lsp.buf.code_action({
       context = { only = { "source.organizeImports" } },
-      apply = true,
+      apply   = true,
     })
   end,
-  pattern = "*.go",
+  pattern  = "*.go",
 })
 
 configuration.lua_ls.setup {
   capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
+  on_attach    = on_attach,
+  settings     = {
     Lua = {
       diagnostics = { globals = { "vim" } },
-      format = { enable = true },
-      runtime = { version = "LuaJIT" },
-      telemetry = { enable = false },
-      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+      format      = { enable = true },
+      runtime     = { version = "LuaJIT" },
+      telemetry   = { enable = false },
+      workspace   = { library = vim.api.nvim_get_runtime_file("", true) },
     },
   },
 }
 
 configuration.sourcekit.setup({
   capabilities = capabilities,
-  on_attach = on_attach,
-  cmd = { "xcrun", "sourcekit-lsp" },
-  filetypes = { "objective-c", "objective-cpp", "swift" },
-  root_dir = utilities.root_pattern("Package.swift", ".git"),
+  on_attach    = on_attach,
+  cmd          = { "xcrun", "sourcekit-lsp" },
+  filetypes    = { "objective-c", "objective-cpp", "swift" },
+  root_dir     = utilities.root_pattern("Package.swift", ".git"),
 })
 
 vim.g.rustaceanvim = {
-  tools = {},
+  tools  = {},
   server = {
     on_attach = on_attach,
-    settings = {
-      ["rust-analyzer"] = {},
-    },
+    settings  = { ["rust-analyzer"] = {} },
   },
-  dap = {},
+  dap    = {},
 }

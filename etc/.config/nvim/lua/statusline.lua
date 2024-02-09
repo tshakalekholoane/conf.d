@@ -1,6 +1,6 @@
 function current_branch()
   if vim.b.git_branch == nil then
-    local current = vim.fn.system("git branch --show-current 2> /dev/null")
+    local current    = vim.fn.system("git branch --show-current 2> /dev/null")
     vim.b.git_branch = current ~= "" and current:gsub("\n", "") or ""
   end
   return vim.b.git_branch

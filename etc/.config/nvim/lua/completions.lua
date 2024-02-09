@@ -1,7 +1,7 @@
-local autopairs = require "nvim-autopairs.completion.cmp"
-local completions = require "cmp"
-local loaders = require "luasnip.loaders.from_vscode"
-local snippets = require "luasnip"
+local autopairs     = require "nvim-autopairs.completion.cmp"
+local completions   = require "cmp"
+local loaders       = require "luasnip.loaders.from_vscode"
+local snippets      = require "luasnip"
 
 local configuration = {
   snippet = {
@@ -10,14 +10,14 @@ local configuration = {
     end,
   },
   mapping = completions.mapping.preset.insert {
-    ["<C-d>"] = completions.mapping.scroll_docs(-4),
-    ["<C-f>"] = completions.mapping.scroll_docs(4),
+    ["<C-d>"]     = completions.mapping.scroll_docs(-4),
+    ["<C-f>"]     = completions.mapping.scroll_docs(4),
     ["<C-Space>"] = completions.mapping.complete {},
-    ["<CR>"] = completions.mapping.confirm {
+    ["<CR>"]      = completions.mapping.confirm {
       behavior = completions.ConfirmBehavior.Replace,
-      select = true,
+      select   = true,
     },
-    ["<Tab>"] = completions.mapping(function(fallback)
+    ["<Tab>"]     = completions.mapping(function(fallback)
       if completions.visible() then
         completions.select_next_item()
       elseif snippets.expand_or_jumpable() then
@@ -26,7 +26,7 @@ local configuration = {
         fallback()
       end
     end, { "i", "s" }),
-    ["<S-Tab>"] = completions.mapping(function(fallback)
+    ["<S-Tab>"]   = completions.mapping(function(fallback)
       if completions.visible() then
         completions.select_prev_item()
       elseif snippets.jumpable(-1) then

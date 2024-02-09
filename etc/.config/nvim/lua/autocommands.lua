@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
   end,
-  pattern = "*",
+  pattern  = "*",
 })
 
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -12,5 +12,5 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
     end
     vim.cmd.update()
   end,
-  pattern = "*",
+  pattern  = "*",
 })

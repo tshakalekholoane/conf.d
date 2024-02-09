@@ -1,9 +1,9 @@
 local configuration = require "nvim-treesitter.configs"
 
 local options = {
-  auto_install = true,
-  autotag = { enable = true },
-  ensure_installed = {
+  auto_install          = true,
+  autotag               = { enable = true },
+  ensure_installed      = {
     -- See the following for a complete list.
     -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages.
     "bash",
@@ -41,23 +41,23 @@ local options = {
     "vimdoc",
     "yaml",
   },
-  endwise = { enable = true },
-  highlight = { enable = true },
-  indent = { enable = true, disable = { "python" } },
+  endwise               = { enable = true },
+  highlight             = { enable = true },
+  indent                = { enable = true, disable = { "python" } },
   incremental_selection = {
-    enable = true,
+    enable  = true,
     keymaps = {
-      init_selection = "<c-Space>",
-      node_incremental = "<c-Space>",
+      init_selection    = "<c-Space>",
+      node_incremental  = "<c-Space>",
       scope_incremental = "<c-s>",
-      node_decremental = "<M-Space>",
+      node_decremental  = "<M-Space>",
     },
   },
-  textobjects = {
+  textobjects           = {
     select = {
-      enable = true,
+      enable    = true,
       lookahead = true,
-      keymaps = {
+      keymaps   = {
         ["aa"] = "@parameter.outer",
         ["ia"] = "@parameter.inner",
         ["af"] = "@function.outer",
@@ -66,14 +66,14 @@ local options = {
         ["ic"] = "@class.inner",
       },
     },
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
+    move   = {
+      enable              = true,
+      set_jumps           = true,
+      goto_next_start     = {
         ["]m"] = "@function.outer",
         ["]]"] = "@class.outer",
       },
-      goto_next_end = {
+      goto_next_end       = {
         ["]M"] = "@function.outer",
         ["]["] = "@class.outer",
       },
@@ -81,14 +81,14 @@ local options = {
         ["[m"] = "@function.outer",
         ["[["] = "@class.outer",
       },
-      goto_previous_end = {
+      goto_previous_end   = {
         ["[M"] = "@function.outer",
         ["[]"] = "@class.outer",
       },
     },
-    swap = {
-      enable = true,
-      swap_next = { ["<Leader>a"] = "@parameter.inner" },
+    swap   = {
+      enable        = true,
+      swap_next     = { ["<Leader>a"] = "@parameter.inner" },
       swap_previous = { ["<Leader>A"] = "@parameter.inner" },
     },
   },

@@ -21,33 +21,23 @@ local plugins = {
       "saadparwaiz1/cmp_luasnip",
     },
   },
-  {
-    "folke/neodev.nvim",
-    opts = {},
-  },
+  { "folke/neodev.nvim",       opts = {}, },
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {},
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    version = "^4",
-    ft = { "rust" },
-  },
+  { "lewis6991/gitsigns.nvim", opts = {} },
+  { "mrcjkb/rustaceanvim",     version = "^4", ft = { "rust" } },
   "neovim/nvim-lspconfig",
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    branch       = "0.1.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
-        cond = function()
+        cond  = function()
           return vim.fn.executable "make" == 1
         end,
       },
@@ -55,17 +45,13 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    build        = ":TSUpdate",
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
   },
   "nvim-treesitter/nvim-treesitter-context",
   "tpope/vim-commentary",
   "tpope/vim-sleuth",
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
-  },
+  { "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
 }
 
 local lazy = require "lazy"
