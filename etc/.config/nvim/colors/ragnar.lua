@@ -16,6 +16,11 @@ local palette = {
   tungsten   = "#424242",
 }
 
+local blended = {
+  cantaloupe = "#332F26",
+  salmon     = "#332626",
+}
+
 local groups = {
   -- See group-name in syntax.
   Comment                  = { fg = palette.steel },
@@ -33,10 +38,12 @@ local groups = {
 
   -- See highlight-groups.
   ColorColumn              = { bg = palette.lead },
-  DiagnosticError          = { fg = palette.salmon },
+  DiagnosticError          = { bg = blended.salmon, fg = palette.salmon },
+  DiagnosticHint           = { bg = blended.cantaloupe, fg = palette.cantaloupe },
   DiagnosticUnderlineError = { sp = palette.salmon },
-  DiagnosticUnderlineWarn  = { sp = palette.salmon },
-  DiagnosticWarn           = { fg = palette.cantaloupe },
+  DiagnosticUnderlineHint  = { sp = palette.cantaloupe },
+  DiagnosticUnderlineWarn  = { sp = palette.cantaloupe },
+  DiagnosticWarn           = { bg = blended.cantaloupe, fg = palette.cantaloupe },
   DiffAdd                  = { fg = palette.spindrift },
   DiffChange               = { fg = palette.cantaloupe },
   DiffDelete               = { fg = palette.salmon },
