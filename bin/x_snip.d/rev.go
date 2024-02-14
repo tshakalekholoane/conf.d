@@ -1,6 +1,5 @@
 func rev[T any](a []T) {
-	for n, i := len(a), 0; i < n/2; i++ {
-		j := n - 1 - i
+	for i, j := 0, len(a)-1; i < j; i, j = i+1, j-1 {
 		a[i], a[j] = a[j], a[i]
 	}
 }
