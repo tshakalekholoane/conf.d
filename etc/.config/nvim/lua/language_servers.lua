@@ -37,7 +37,6 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 completions.default_capabilities(capabilities)
 
-
 -- Servers configured with their default settings.
 local servers = {
   "bashls",
