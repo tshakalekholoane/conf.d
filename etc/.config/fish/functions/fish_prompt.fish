@@ -1,9 +1,5 @@
 function fish_prompt -d "Writes prompt."
-  set dir (basename $PWD)
-  if test "$dir" = "$USER"
-    set dir "~"
-  end
-  echo "$dir" (set_color brred)"% "(set_color normal)
+  echo (set_color brred)"% "(set_color normal)
 end
 
 function fish_right_prompt -d "Writes right prompt."
