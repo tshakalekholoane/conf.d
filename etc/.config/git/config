@@ -1,18 +1,36 @@
 [commit]
 	gpgsign = true
+	verbose = true
+
 [core]
-	editor = nvim
+	editor       = nvim
+	excludefiles = ~/.config/git/gitignore
+
+[diff]
+	algorithm = histogram
+
+[fetch]
+	prune     = true
+	prunetags = true
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+	clean    = git-lfs clean -- %f
+	smudge   = git-lfs smudge -- %f
+	process  = git-lfs filter-process
 	required = true
+
 [init]
 	defaultbranch = main
+
+[log]
+	date = iso
+
 [push]
 	autosetupremote = true
-	default = current
+	default         = current
+	followtags      = true
+
 [user]
-	email = mail+git@tshaka.dev
-	name = Tshaka Lekholoane
+	email      = mail+git@tshaka.dev
+	name       = Tshaka Lekholoane
 	signingkey = mail+git@tshaka.dev
