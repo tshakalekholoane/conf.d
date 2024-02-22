@@ -7,7 +7,7 @@ abbr --add --global ls "ls -F"
 abbr --add --global m "x_md"
 abbr --add --global t "x_tape_archive"
 abbr --add --global v "nvim"
-abbr --add --global vf "nvim (fzf)"
+abbr --add --global vf "nvim (fzf --scheme path)"
 
 set --export dl ~/Downloads
 set --export dsk ~/Desktop
