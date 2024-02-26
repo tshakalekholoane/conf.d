@@ -4,7 +4,7 @@
 
 [core]
 	editor       = nvim
-	excludefiles = ~/.config/git/gitignore
+	excludesfile = ~/.config/git/gitignore
 
 [diff]
 	algorithm = histogram
