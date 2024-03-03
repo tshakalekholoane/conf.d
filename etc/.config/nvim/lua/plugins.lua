@@ -4,9 +4,9 @@ if not vim.loop.fs_stat(path) then
   vim.fn.system({
     "git",
     "clone",
+    "--branch=stable",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
     path,
   })
 end
