@@ -4,12 +4,8 @@ local loaders       = require "luasnip.loaders.from_vscode"
 local snippets      = require "luasnip"
 
 local configuration = {
-  snippet = {
-    expand = function(args)
-      snippets.lsp_expand(args.body)
-    end,
-  },
-  mapping = completions.mapping.preset.insert {
+  completion = { completeopt = "menu,menuone,noinsert" },
+  mapping    = completions.mapping.preset.insert {
     ["<C-d>"]     = completions.mapping.scroll_docs(-4),
     ["<C-f>"]     = completions.mapping.scroll_docs(4),
     ["<C-Space>"] = completions.mapping.complete {},
@@ -36,9 +32,15 @@ local configuration = {
       end
     end, { "i", "s" }),
   },
-  sources = {
-    { name = "nvim_lsp" },
+  snippet    = {
+    expand = function(args)
+      snippets.lsp_expand(args.body)
+    end,
+  },
+  sources    = {
     { name = "luasnip" },
+    { name = "nvim_lsp" },
+    { name = "path" },
   },
 }
 
