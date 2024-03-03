@@ -3,10 +3,13 @@ local telescope     = require "telescope"
 local themes        = require "telescope.themes"
 
 local configuration = {
-  pickers = {
+  pickers    = {
     find_files = {
       find_command = { "fd", "--type", "file", "--follow", "--hidden" },
     },
+  },
+  extensions = {
+    ["ui-select"] = { require("telescope.themes").get_dropdown() },
   },
 }
 
@@ -26,3 +29,4 @@ vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "List references" })
 
 telescope.setup(configuration)
 telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
