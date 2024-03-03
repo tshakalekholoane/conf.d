@@ -35,7 +35,7 @@ local function on_attach(_, buffer)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-completions.default_capabilities(capabilities)
+capabilities = vim.tbl_deep_extend("force", capabilities, completions.default_capabilities())
 
 -- Servers configured with their default settings.
 local servers = {
