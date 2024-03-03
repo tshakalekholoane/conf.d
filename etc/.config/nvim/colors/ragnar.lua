@@ -38,6 +38,8 @@ local groups = {
 
   -- See highlight-groups.
   ColorColumn              = { bg = palette.lead },
+  CursorLine               = { bg = palette.lead },
+  CursorLineNr             = { fg = palette.snow },
   DiagnosticError          = { bg = blended.salmon, fg = palette.salmon },
   DiagnosticHint           = { bg = blended.cantaloupe, fg = palette.cantaloupe },
   DiagnosticUnderlineError = { sp = palette.salmon },

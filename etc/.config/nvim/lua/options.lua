@@ -6,6 +6,7 @@ vim.opt.clipboard            = "unnamedplus"
 vim.opt.cmdheight            = 0
 vim.opt.colorcolumn          = "72,80"
 vim.opt.completeopt          = { "menuone", "noselect" }
+vim.opt.cursorline           = true
 vim.opt.encoding             = "utf-8"
 vim.opt.foldenable           = false
 vim.opt.foldexpr             = "nvim_treesitter#foldexpr()"
