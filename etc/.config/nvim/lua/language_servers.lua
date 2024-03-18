@@ -17,21 +17,21 @@ local function async_buf_format()
 end
 
 local function on_attach(_, buffer)
-  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = buffer, desc = "[g]o to [D]eclaration" })
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = buffer, desc = "[g]o to [d]efinition" })
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buffer, desc = "Hover" })
-  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = buffer, desc = "[g]o to [i]mplementation" })
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = buffer, desc = "Signature help" })
+  vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, { buffer = buffer, desc = "Type definition" })
+  vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = buffer, desc = "[c]ode [a]ction" })
+  vim.keymap.set("n", "<space>f", async_buf_format, { buffer = buffer, desc = "Format" })
+  vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { buffer = buffer, desc = "[r]e[n]ame" })
   vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder,
     { buffer = buffer, desc = "[w]orkspace [a]dd folder" })
+  vim.keymap.set("n", "<space>wl", list_workspace_folders, { buffer = buffer, desc = "[W]orkspace [L]ist folders" })
   vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder,
     { buffer = buffer, desc = "[w]orkspace [r]emove folder" })
-  vim.keymap.set("n", "<space>wl", list_workspace_folders, { buffer = buffer, desc = "[W]orkspace [L]ist folders" })
-  vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, { buffer = buffer, desc = "Type definition" })
-  vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { buffer = buffer, desc = "[r]e[n]ame" })
-  vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = buffer, desc = "[c]ode [a]ction" })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buffer, desc = "Hover" })
+  vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = buffer, desc = "[g]o to [D]eclaration" })
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = buffer, desc = "[g]o to [d]efinition" })
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = buffer, desc = "[g]o to [i]mplementation" })
   vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = buffer, desc = "[g]o to [r]eferences" })
-  vim.keymap.set("n", "<space>f", async_buf_format, { buffer = buffer, desc = "Format" })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -92,27 +92,15 @@ configuration.gopls.setup {
         nilness        = true,
         shadow         = true,
         unusedparams   = true,
+        unusedvariable = true,
         unusedwrite    = true,
         useany         = true,
-        unusedvariable = true,
       },
       gofumpt     = true,
       staticcheck = true,
     },
   },
 }
-
--- Organise imports in Go on save. See the following for reference:
--- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-imports.
-vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function()
-    vim.lsp.buf.code_action({
-      context = { only = { "source.organizeImports" } },
-      apply   = true,
-    })
-  end,
-  pattern  = "*.go",
-})
 
 configuration.lua_ls.setup {
   capabilities = capabilities,
@@ -130,17 +118,17 @@ configuration.lua_ls.setup {
 
 configuration.sourcekit.setup({
   capabilities = capabilities,
-  on_attach    = on_attach,
-  cmd          = { "xcrun", "sourcekit-lsp" },
+  cmd          = { "sourcekit-lsp" },
   filetypes    = { "objective-c", "objective-cpp", "swift" },
+  on_attach    = on_attach,
   root_dir     = utilities.root_pattern("Package.swift", ".git"),
 })
 
 vim.g.rustaceanvim = {
-  tools  = {},
+  dap    = {},
   server = {
     on_attach = on_attach,
     settings  = { ["rust-analyzer"] = {} },
   },
-  dap    = {},
+  tools  = {},
 }
