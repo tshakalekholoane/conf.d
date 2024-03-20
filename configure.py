@@ -20,7 +20,7 @@ def link_executables():
             try:
                 target.symlink_to(source)
             except FileExistsError:
-                continue
+                pass
 
 
 def link_configuration_files():
@@ -38,7 +38,7 @@ def link_configuration_files():
         try:
             target.symlink_to(source)
         except FileExistsError:
-            continue
+            pass
 
     if restore_config:
         for file in config_backup.iterdir():
