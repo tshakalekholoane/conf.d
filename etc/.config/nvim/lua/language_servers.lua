@@ -98,6 +98,7 @@ configuration.gopls.setup {
       },
       gofumpt     = true,
       staticcheck = true,
+      vulncheck   = "Imports",
     },
   },
 }
