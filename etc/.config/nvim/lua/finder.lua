@@ -5,7 +5,7 @@ local themes        = require "telescope.themes"
 local configuration = {
   pickers    = {
     find_files = {
-      find_command = { "fd", "--type", "file", "--follow", "--hidden" },
+      find_command = { "fd", "--type", "file", "--follow", "--hidden", "--exclude", ".git" },
     },
   },
   extensions = {

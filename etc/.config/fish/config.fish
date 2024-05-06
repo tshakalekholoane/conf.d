@@ -13,7 +13,7 @@ set --export x ~/x
 
 set --export CLICOLOR 1
 set --export EDITOR (which nvim)
-set --export FZF_DEFAULT_COMMAND "fd --type file --follow --hidden"
+set --export FZF_DEFAULT_COMMAND "fd --type file --follow --hidden --exclude .git"
 set --export GNUPGHOME ~/.config/gnupg
 set --export GPG_TTY (tty)
 
