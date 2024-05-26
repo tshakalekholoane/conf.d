@@ -41,11 +41,10 @@ def link_configuration_files():
             pass
 
     if restore_config:
-        for file in config_backup.iterdir():
-            source = config_backup / file
-            target = config / file
+        for source in config_backup.iterdir():
+            target = config / source.stem
             shutil.move(source, target)
-        config_backup.unlink()
+        config_backup.rmdir()
 
 
 def unlink_executables():
