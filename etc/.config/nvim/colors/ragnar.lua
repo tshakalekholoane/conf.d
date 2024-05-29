@@ -23,6 +23,8 @@ local blended = {
 
 local groups = {
   -- See group-name in syntax.
+  Added                    = { fg = palette.spindrift },
+  Changed                  = { fg = palette.cantaloupe },
   Comment                  = { fg = palette.steel },
   Constant                 = { fg = palette.spindrift },
   Delimiter                = { fg = palette.steel },
@@ -30,8 +32,10 @@ local groups = {
   Identifier               = { fg = palette.snow },
   Operator                 = { fg = palette.cantaloupe },
   PreProc                  = { fg = palette.sky },
+  Removed                  = { fg = palette.salmon },
   Special                  = {},
   Statement                = { fg = palette.sky },
+  String                   = { fg = palette.spindrift },
   Todo                     = { bold = true },
   Type                     = { fg = palette.salmon },
   Underlined               = { underline = true },
