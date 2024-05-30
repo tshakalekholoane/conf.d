@@ -1,5 +1,5 @@
 function fish_prompt -d "Writes prompt."
-  echo (set_color brred)"% "(set_color normal)
+  echo "% "
 end
 
 function fish_right_prompt -d "Writes right prompt."
