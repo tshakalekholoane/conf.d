@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Swaps Caps Lock with Esc in GNOME.
 
-if [[ "$(uname -s)" != "Linux" ]]; then
+if [[ "$(uname)" != "Linux" ]]; then
   printf "%s: incompatible system\n" "$(basename "$0")"
   exit 1
 fi

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Update the default GRUB entry.
 
-if [[ "$(uname -s)" != "Linux" ]]; then
+if [[ "$(uname)" != "Linux" ]]; then
   printf "%s: incompatible system\n" "$(basename "$0")" >&2
   exit 1
 fi

@@ -4,7 +4,7 @@
 readonly PROGRAM="$(basename "$0")"
 
 usage() {
-  printf "usage:\t%s [-hl] <module>\n" "${PROGRAM}"
+  printf "usage: %s [-hl] module\n" "${PROGRAM}"
 }
 
 module() {

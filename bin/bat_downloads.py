@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
-"""bat_downloads returns a table showing the number of bat
-(https://tshaka.dev/x/bat) downloads grouped by release version.
-"""
+"""Download statistics for https://tshaka.dev/x/bat."""
 
-import requests
+from urllib.request import Request
+from urllib import request
+import json
 
-URL = "https://api.github.com/repos/tshakalekholoane/bat/releases"
+url = "https://api.github.com/repos/tshakalekholoane/bat/releases"
 headers = {"Accept": "application/vnd.github.v3+json"}
-response = requests.get(url=URL, headers=headers, timeout=10)
 
-total_downloads = 0
-print("ver.\tn")
-print("-" * 6 + "\t" + "-" * 6)
-for release in response.json():
-    count = release["assets"][0]["download_count"]
-    version = release["tag_name"]
-    total_downloads += count
-    print(f"{version}\t{count}")
-print("-" * 14)
-print(f"\t{total_downloads}")
+req = Request(url=url, headers=headers)
+with request.urlopen(req) as resp:
+    total = 0
+    data = resp.read().decode()
+    for release in json.loads(data):
+        count = release["assets"][0]["download_count"]
+        version = release["tag_name"]
+        total += count
+        print(f"{version}\t{count}")
+    print(f"\t{total}")

@@ -9,8 +9,8 @@ usage() {
 }
 
 main() {
-  while getopts "hl" OPT; do
-    case "${OPT}" in
+  while getopts "hl" opt; do
+    case "${opt}" in
       h)
         usage
         exit
