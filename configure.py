@@ -44,10 +44,10 @@ def link_configuration_files():
         for source in config_backup.iterdir():
             target = config / source.stem
             shutil.move(source, target)
-        if config_backup.is_dir():
-            config_backup.rmdir()
-        elif config_backup.is_symlink():
+        if config_backup.is_symlink():
             config_backup.unlink()
+        elif config_backup.is_dir():
+            config_backup.rmdir()
         else:
             raise ValueError(f"{config_backup} is not a directory or symbolic link")
 
