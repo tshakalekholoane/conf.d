@@ -33,7 +33,6 @@ vim.opt.splitbelow           = true
 vim.opt.splitright           = true
 vim.opt.syntax               = "on"
 vim.opt.tabstop              = 2
-vim.opt.termguicolors        = true
 vim.opt.undofile             = true
 vim.opt.updatetime           = 1000
 vim.opt.wrap                 = false
