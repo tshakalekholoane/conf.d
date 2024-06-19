@@ -34,12 +34,5 @@ set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 function fish_mode_prompt; end
 
-if test $kernel = "Darwin"
-  # Remap keys if the USB keyboard is not connected (it is harder to
-  # pick out the Bluetooth keyboard).
-  if not ioreg -p IOUSB | rg "USB Keyboard" --quiet
-    darwin_remap 1> /dev/null
-  end
-end
 gpgconf --launch gpg-agent
 umask 0002
