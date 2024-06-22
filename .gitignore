@@ -2,6 +2,8 @@
 .ropeproject
 .vscode
 
+bin/x_gitignore.d/
+
 etc/.config/*
 
 !etc/.config/git/
