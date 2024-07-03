@@ -14,5 +14,7 @@
 --enable blankLineAfterImports
 --enable blankLinesBetweenImports
 --enable docComments
---enable isEmpty
 --enable sortSwitchCases
+
+# Opt-out.
+--disable trailingClosures
