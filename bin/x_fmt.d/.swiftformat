@@ -4,6 +4,7 @@
 --header "strip"
 --hexliteralcase "lowercase"
 --indent 2
+--self "insert"
 --swiftversion 5.8
 --wraparguments "before-first"
 --wrapcollections "before-first"
