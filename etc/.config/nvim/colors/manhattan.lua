@@ -22,7 +22,7 @@ local blended = {
 }
 
 local groups = {
-  -- See group-name in syntax.
+  -- group-name.
   Added                    = { fg = palette.spindrift },
   Changed                  = { fg = palette.cantaloupe },
   Comment                  = { fg = palette.steel },
@@ -36,12 +36,14 @@ local groups = {
   Special                  = {},
   Statement                = { fg = palette.sky },
   String                   = { fg = palette.spindrift },
+  Tag                      = { bold = true },
   Todo                     = { bold = true },
   Type                     = { fg = palette.salmon },
   Underlined               = { underline = true },
 
-  -- See highlight-groups.
+  -- highlight-groups.
   ColorColumn              = { bg = palette.lead },
+  Cursor                   = { bg = palette.strawberry, fg = palette.charcoal },
   CursorLine               = { bg = palette.lead },
   CursorLineNr             = { fg = palette.snow },
   DiagnosticError          = { bg = blended.salmon, fg = palette.salmon },
@@ -54,6 +56,7 @@ local groups = {
   DiffChange               = { fg = palette.cantaloupe },
   DiffDelete               = { fg = palette.salmon },
   DiffText                 = {},
+  Directory                = { bold = true },
   ErrorMsg                 = { fg = palette.salmon },
   Folded                   = { bg = palette.lead, fg = palette.steel },
   IncSearch                = { bg = palette.jet, bold = true },
@@ -65,11 +68,13 @@ local groups = {
   Pmenu                    = { bg = palette.liquorice, fg = palette.snow },
   PmenuSel                 = { bg = palette.jet, bold = true },
   Question                 = {},
+  Search                   = { bg = palette.jet, bold = true },
   SignColumn               = { bg = palette.charcoal },
   SpellBad                 = { sp = palette.salmon, underline = true },
   SpellCap                 = { sp = palette.sky, underline = true },
   SpellLocal               = { sp = palette.salmon, underline = true },
   StatusLine               = { bg = palette.liquorice, fg = palette.snow },
+  Substitute               = { bg = palette.jet, bold = true },
   Title                    = { fg = palette.snow, bold = true },
   Visual                   = { bg = palette.jet, bold = true },
   WarningMsg               = { fg = palette.cantaloupe },
@@ -89,7 +94,7 @@ local terminal = {
 vim.opt.background = "dark"
 vim.cmd.highlight("clear")
 vim.cmd.syntax("reset")
-vim.g.colors_name = "ragnar"
+vim.g.colors_name = "manhattan"
 
 for k, v in pairs(terminal) do
   vim.g["terminal_color_" .. k] = v
