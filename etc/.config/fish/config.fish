@@ -10,6 +10,7 @@ abbr --add --global licence "x_licence"
 abbr --add --global ll "ls -lhAF"
 abbr --add --global ls "ls -F"
 abbr --add --global m "x_md"
+abbr --add --global p "python3"
 abbr --add --global v "nvim"
 abbr --add --global vf "nvim (fzf --scheme path)"
 
