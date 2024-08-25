@@ -8,12 +8,8 @@ etc/.config/*
 
 !etc/.config/git/
 !etc/.config/kitty/
-!etc/.config/nvim/
 !etc/.config/sway/
 !etc/.config/tmux/
-etc/.config/nvim/lazy-lock.json
-etc/.config/nvim/lua/.luarc.json
-etc/.config/nvim/spell/*.spl
 
 !etc/.config/fish/
 etc/.config/fish/completions/
@@ -26,3 +22,12 @@ etc/.config/gnupg/*
 
 !etc/.config/helix/
 etc/.config/helix/runtime
+
+!etc/.config/nvim/
+etc/.config/nvim/lazy-lock.json
+etc/.config/nvim/lua/.luarc.json
+etc/.config/nvim/spell/*.spl
+
+!etc/.config/zed/
+etc/.config/zed/*
+!etc/.config/zed/settings.json
