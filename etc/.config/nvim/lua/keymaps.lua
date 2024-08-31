@@ -1,8 +1,12 @@
 local function toggle_background()
   vim.o.background = vim.o.background == "dark" and "light" or "dark"
+local function toggle_diagnostics()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end
 end
 
 vim.keymap.set("n", "<Leader>a", "1<C-a>")
+vim.keymap.set("n", "<Leader>d", toggle_diagnostics)
 vim.keymap.set("n", "<Leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<Leader>o", ":only<CR>")
 vim.keymap.set("n", "<Leader>r", "<Esc>:edit<CR>")
