@@ -14,16 +14,6 @@ vim.opt.rtp:prepend(path)
 
 local plugins = {
   {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "L3MON4D3/LuaSnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
-    },
-  },
-  { "folke/neodev.nvim",       opts = {}, },
-  {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
   },

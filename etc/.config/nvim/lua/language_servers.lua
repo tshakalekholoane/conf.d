@@ -1,4 +1,3 @@
-local completions   = require "cmp_nvim_lsp"
 local configuration = require "lspconfig"
 local general       = require "null-ls"
 local utilities     = require "lspconfig.util"
@@ -35,7 +34,6 @@ local function on_attach(_, buffer)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend("force", capabilities, completions.default_capabilities())
 
 -- Servers configured with their default settings.
 local servers = {
