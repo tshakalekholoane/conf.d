@@ -1,3 +1,4 @@
+vim.diagnostic.enable(false)
 vim.g.netrw_banner           = 0
 vim.g.netrw_liststyle        = 3
 vim.g.rust_recommended_style = 0
