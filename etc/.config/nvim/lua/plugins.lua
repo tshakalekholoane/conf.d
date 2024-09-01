@@ -18,7 +18,7 @@ local plugins = {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   { "lewis6991/gitsigns.nvim", opts = {} },
-  { "mrcjkb/rustaceanvim",     version = "^4", ft = { "rust" } },
+  { "mrcjkb/rustaceanvim",     version = "^5", ft = { "rust" } },
   "neovim/nvim-lspconfig",
   {
     "nvim-telescope/telescope.nvim",
