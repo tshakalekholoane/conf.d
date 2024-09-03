@@ -1,5 +1,6 @@
 local function toggle_diagnostics()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+  vim.opt.spell = not vim.opt.spell:get()
 end
 
 vim.keymap.set("n", "<Leader>a", "1<C-a>")

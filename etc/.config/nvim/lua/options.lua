@@ -28,7 +28,6 @@ vim.opt.scrolloff            = 8
 vim.opt.shiftwidth           = 2
 vim.opt.showmode             = false
 vim.opt.smartcase            = true
-vim.opt.spell                = true
 vim.opt.spelllang            = "en_gb"
 vim.opt.spelloptions         = "camel"
 vim.opt.splitbelow           = true
