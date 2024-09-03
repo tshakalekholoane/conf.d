@@ -76,7 +76,7 @@ general.setup({
   },
 })
 
-configuration.gopls.setup {
+configuration.gopls.setup({
   capabilities        = capabilities,
   cmd                 = { "gopls", "serve" },
   filetypes           = { "go", "gomod", "gowork", "gotmpl" },
@@ -99,9 +99,9 @@ configuration.gopls.setup {
       vulncheck   = "Imports",
     },
   },
-}
+})
 
-configuration.lua_ls.setup {
+configuration.lua_ls.setup({
   capabilities = capabilities,
   on_attach    = on_attach,
   settings     = {
@@ -113,7 +113,7 @@ configuration.lua_ls.setup {
       workspace   = { library = vim.api.nvim_get_runtime_file("", true) },
     },
   },
-}
+})
 
 configuration.sourcekit.setup({
   capabilities = capabilities,
