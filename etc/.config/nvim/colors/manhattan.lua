@@ -25,7 +25,7 @@ local blended = {
 }
 
 local groups = {
-  -- group-name.
+  -- See group-name.
   Comment                  = { fg = palette.steel },
   Constant                 = { fg = palette.spindrift },
   String                   = { fg = palette.spindrift },
@@ -44,7 +44,7 @@ local groups = {
   Changed                  = { bg = blended.cantaloupe },
   Removed                  = { bg = blended.salmon },
 
-  -- highlight-groups.
+  -- See highlight-groups.
   ColorColumn              = { bg = palette.lead },
   CurSearch                = { bg = palette.cantaloupe, fg = palette.charcoal, bold = true },
   Cursor                   = { bg = palette.strawberry, fg = palette.charcoal },
@@ -79,7 +79,7 @@ local groups = {
   Visual                   = { bg = palette.jet, bold = true },
   WarningMsg               = { fg = palette.cantaloupe },
 
-  -- diagnostic-highlights.
+  -- See diagnostic-highlights.
   DiagnosticError          = { bg = blended.salmon, fg = palette.salmon },
   DiagnosticWarn           = { bg = blended.lavender, fg = palette.lavender },
   DiagnosticHint           = { bg = blended.cantaloupe, fg = palette.cantaloupe },
@@ -87,7 +87,7 @@ local groups = {
   DiagnosticUnderlineWarn  = { sp = palette.cantaloupe },
   DiagnosticUnderlineHint  = { sp = palette.cantaloupe },
 
-  -- gitsigns-highlight-groups.
+  -- See gitsigns-highlight-groups.
   GitSignsAdd              = { fg = palette.spindrift },
   GitSignsChange           = { fg = palette.cantaloupe },
   GitSignsDelete           = { fg = palette.salmon },
