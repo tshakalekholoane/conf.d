@@ -13,10 +13,6 @@ end
 vim.opt.rtp:prepend(path)
 
 local plugins = {
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
   { "lewis6991/gitsigns.nvim", opts = {} },
   { "mrcjkb/rustaceanvim",     version = "^5", ft = { "rust" } },
   "neovim/nvim-lspconfig",

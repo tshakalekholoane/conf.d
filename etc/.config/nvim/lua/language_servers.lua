@@ -1,5 +1,4 @@
 local configuration = require "lspconfig"
-local general       = require "null-ls"
 local utilities     = require "lspconfig.util"
 
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic" })
@@ -37,13 +36,11 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 -- Servers configured with their default settings.
 local servers = {
-  "bashls",
   "clangd",
   "cssls",
   "denols",
   "golangci_lint_ls",
   "html",
-  "jsonls",
   "pyright",
   "ruff_lsp",
 }
@@ -53,28 +50,6 @@ for _, server in ipairs(servers) do
     on_attach    = on_attach,
   }
 end
-
--- General language server. See the following for a complete list of
--- configuration options.
--- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-general.setup({
-  sources = {
-    general.builtins.code_actions.gomodifytags,
-    general.builtins.diagnostics.actionlint,
-    general.builtins.diagnostics.buildifier,
-    general.builtins.diagnostics.checkmake,
-    general.builtins.diagnostics.fish,
-    general.builtins.diagnostics.swiftlint,
-    general.builtins.formatting.buildifier,
-    general.builtins.formatting.fish_indent,
-    general.builtins.formatting.goimports,
-    general.builtins.formatting.jq,
-    general.builtins.formatting.swiftformat,
-    general.builtins.formatting.swiftlint,
-    general.builtins.formatting.trim_whitespace,
-    general.builtins.formatting.yamlfmt,
-  },
-})
 
 configuration.gopls.setup({
   capabilities        = capabilities,

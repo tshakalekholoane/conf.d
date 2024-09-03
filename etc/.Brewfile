@@ -4,7 +4,6 @@ tap "tshakalekholoane/taps"
 tap "tdewolff/tap"
 
 brew "bash"
-brew "bash-language-server"
 brew "can"
 brew "deno"
 brew "fd"
