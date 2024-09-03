@@ -91,6 +91,10 @@ local groups = {
   GitSignsAdd              = { fg = palette.spindrift },
   GitSignsChange           = { fg = palette.cantaloupe },
   GitSignsDelete           = { fg = palette.salmon },
+
+  -- See plugin/telescope.lua.
+  TelescopeBorder          = { fg = palette.jet },
+  TelescopeTitle           = { bg = palette.charcoal, fg = palette.snow },
 }
 
 local terminal = {
