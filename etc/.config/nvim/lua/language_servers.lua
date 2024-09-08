@@ -90,14 +90,6 @@ configuration.lua_ls.setup({
   },
 })
 
-configuration.sourcekit.setup({
-  capabilities = capabilities,
-  cmd          = { "sourcekit-lsp" },
-  filetypes    = { "objective-c", "objective-cpp", "swift" },
-  on_attach    = on_attach,
-  root_dir     = utilities.root_pattern("Package.swift", ".git"),
-})
-
 vim.g.rustaceanvim = {
   dap    = {},
   server = {
