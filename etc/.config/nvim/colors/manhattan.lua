@@ -81,7 +81,7 @@ local groups = {
 
   -- See diagnostic-highlights.
   DiagnosticError          = { bg = blended.salmon, fg = palette.salmon },
-  DiagnosticWarn           = { bg = blended.lavender, fg = palette.lavender },
+  DiagnosticWarn           = { bg = blended.cantaloupe, fg = palette.cantaloupe },
   DiagnosticHint           = { bg = blended.cantaloupe, fg = palette.cantaloupe },
   DiagnosticUnderlineError = { sp = palette.salmon },
   DiagnosticUnderlineWarn  = { sp = palette.cantaloupe },
