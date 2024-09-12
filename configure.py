@@ -4,12 +4,10 @@
 import shutil
 import subprocess
 import sys
+from argparse import ArgumentParser
 from pathlib import Path
 
-
-USAGE = "usage: configure [--help] {install, uninstall}"
-HOME  = Path.home()
-
+HOME = Path.home()
 
 agents = [
     HOME / "conf.d" / "opt" / "dev.tshaka.remap.plist",
@@ -99,22 +97,20 @@ def unload_launch_agents():
 
 
 def main():
-    if len(sys.argv) < 2:
-        print(USAGE)
-        return 1
-    option = sys.argv[1]
-    match option:
-        case "-h" | "--help":
-            print(USAGE)
-        case "install":
-            link_executables()
-            link_configuration_files()
-        case "uninstall":
-            unlink_executables()
-            unlink_configuration_files()
-        case _:
-            print(f"configure: unrecognised option: {option}")
-            return 1
+    parser = ArgumentParser(prog = "configure", description = "configure current system")
+    parser.add_argument("-i", "--uninstall", action = "store_true", help = "install configuration files")
+    parser.add_argument("-u", "--install", action = "store_true", help = "uninstall configuration files")
+    arguments = parser.parse_args()
+
+    if arguments.install:
+        link_executables()
+        link_configuration_files()
+    elif arguments.uninstall:
+        unlink_executables()
+        unlink_configuration_files()
+    else:
+        parser.print_help(file = sys.stderr)
+        return 2
 
 
 if __name__ == "__main__":
