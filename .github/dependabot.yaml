@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: gomod
+    directories:
+      - /bin/markdown_to_html/
+    schedule:
+      interval: weekly

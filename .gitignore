@@ -2,6 +2,7 @@
 .ropeproject
 .vscode
 
+bin/*.exe
 bin/git_ignore.d/
 
 etc/.config/*

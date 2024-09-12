@@ -13,6 +13,16 @@ agents = [
     HOME / "conf.d" / "opt" / "dev.tshaka.remap.plist",
 ]
 
+static_executables = [
+    ("markdown_to_html", ["go",  "build", "-o", "../markdown_to_html.exe", "."]),
+]
+
+
+def build_executables():
+    executables = HOME / "conf.d" / "bin"
+    for program, build in static_executables:
+        subprocess.run(build, check = True, cwd = executables / program)
+
 
 def link_executables():
     target_directory = HOME / "bin"
@@ -98,11 +108,15 @@ def unload_launch_agents():
 
 def main():
     parser = ArgumentParser(prog = "configure", description = "configure current system")
+    parser.add_argument("-b", "--build", action = "store_true", help = "build static executables")
     parser.add_argument("-i", "--uninstall", action = "store_true", help = "install configuration files")
     parser.add_argument("-u", "--install", action = "store_true", help = "uninstall configuration files")
     arguments = parser.parse_args()
 
-    if arguments.install:
+    if arguments.build:
+        build_executables()
+    elif arguments.install:
+        build_executables()
         link_executables()
         link_configuration_files()
     elif arguments.uninstall:

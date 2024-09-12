@@ -1,5 +1,5 @@
 # `conf.d`
 
 ```
-usage: configure [-h] [-i] [-u]
+usage: configure [-h] [-b] [-i] [-u]
 ```
