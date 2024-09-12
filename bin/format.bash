@@ -2,7 +2,7 @@
 # Generates a configuration file for the language (formatter) specified
 # in the current directory.
 
-readonly DIRECTORY="${HOME}/conf.d/bin/x_fmt.d"
+readonly DIRECTORY="${HOME}/conf.d/bin/format.d"
 readonly PROGRAM="$(basename "$0")"
 
 declare -A configuration_file

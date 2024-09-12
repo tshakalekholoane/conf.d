@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Generates a licence file specified in the current directory.
 
-readonly DIRECTORY="${HOME}/conf.d/bin/x_licence.d"
+readonly DIRECTORY="${HOME}/conf.d/bin/licence.d"
 readonly PROGRAM="$(basename "$0")"
 
 declare -A licence

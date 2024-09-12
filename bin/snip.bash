@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Print code snippets to standard output.
 
-readonly DIRECTORY="${HOME}/conf.d/bin/x_snip.d"
+readonly DIRECTORY="${HOME}/conf.d/bin/snip.d"
 readonly PROGRAM="$(basename "$0")"
 
 usage() {

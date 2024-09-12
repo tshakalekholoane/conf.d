@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Generate a gitignore file in the current directory.
 
-readonly REPOSITORY="${HOME}/conf.d/bin/x_gitignore.d"
+readonly REPOSITORY="${HOME}/conf.d/bin/git_ignore.d"
 readonly PROGRAM="$(basename "$0")"
 
 fatalln() {

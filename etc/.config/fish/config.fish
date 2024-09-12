@@ -4,12 +4,11 @@ set --local kernel (uname)
 if test $kernel = Linux
     abbr --add --global can "gio trash"
 end
-abbr --add --global f x_fmt
+abbr --add --global f format
 abbr --add --global less "less -FIRX"
-abbr --add --global licence x_licence
 abbr --add --global ll "ls -lhAF"
 abbr --add --global ls "ls -F"
-abbr --add --global m x_md
+abbr --add --global m md
 abbr --add --global p python3
 abbr --add --global v nvim
 abbr --add --global vf "nvim (fzf --scheme path)"
