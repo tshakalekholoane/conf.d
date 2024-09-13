@@ -110,8 +110,8 @@ def unload_launch_agents():
 def main():
     parser = ArgumentParser(prog = "configure", description = "configure current system")
     parser.add_argument("-b", "--build", action = "store_true", help = "build static executables")
-    parser.add_argument("-i", "--uninstall", action = "store_true", help = "install configuration files")
-    parser.add_argument("-u", "--install", action = "store_true", help = "uninstall configuration files")
+    parser.add_argument("-i", "--install", action = "store_true", help = "install configuration files")
+    parser.add_argument("-u", "--uninstall", action = "store_true", help = "uninstall configuration files")
     arguments = parser.parse_args()
 
     if arguments.build:
