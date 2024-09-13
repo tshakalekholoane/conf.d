@@ -1,9 +1,7 @@
 tap "homebrew/bundle"
-tap "tshakalekholoane/taps"
 tap "tdewolff/tap"
 
 brew "bash"
-brew "can"
 brew "deno"
 brew "fd"
 brew "fish"
