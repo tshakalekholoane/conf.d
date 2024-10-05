@@ -37,7 +37,6 @@
   "relative_line_numbers": true,
   "remove_trailing_whitespace_on_save": true,
   "show_inline_completions": false,
-  "show_whitespaces": "boundary",
   "tab_size": 2,
   "show_completions_on_input": false,
   "telemetry": {
