@@ -1,1 +1,1 @@
-vim.cmd.colorscheme("manhattan")
+vim.cmd.colorscheme("semafor")

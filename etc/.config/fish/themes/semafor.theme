@@ -1,0 +1,29 @@
+# name: Semafor
+# license: ISC
+# preferred_background: f8f5d7
+# url: https://github.com/tshakalekholoane/conf.d
+
+fish_color_autosuggestion b6b49e
+fish_color_cancel b6b49e
+fish_color_command normal --bold
+fish_color_comment bc4d2c
+fish_color_end normal 
+fish_color_error red
+fish_color_escape 3a6d78
+fish_color_keyword 1f2b6d
+fish_color_normal normal
+fish_color_operator normal
+fish_color_option normal 
+fish_color_param normal
+fish_color_quote af1f1b
+fish_color_redirection normal
+fish_color_selection --background bfccba
+fish_color_valid_path normal
+
+fish_pager_color_completion normal
+fish_pager_color_description normal
+fish_pager_color_prefix 3a6d78
+fish_pager_color_progress normal --background edeacd
+fish_pager_color_selected_background --background ece9d2
+
+# vim: filetype=fish
