@@ -3,13 +3,13 @@ local telescope     = require "telescope"
 local themes        = require "telescope.themes"
 
 local configuration = {
+  extensions = {
+    ["ui-select"] = { themes.get_cursor() },
+  },
   pickers    = {
     find_files = {
       find_command = { "fd", "--type", "file", "--follow", "--hidden", "--exclude", ".git" },
     },
-  },
-  extensions = {
-    ["ui-select"] = { require("telescope.themes").get_dropdown() },
   },
 }
 
