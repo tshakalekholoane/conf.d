@@ -1,3 +1,11 @@
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN]  = "",
+    },
+  },
+})
 vim.diagnostic.enable(false)
 vim.g.netrw_banner           = 0
 vim.g.netrw_liststyle        = 3
