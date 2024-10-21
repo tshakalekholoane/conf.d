@@ -7,6 +7,7 @@ bin/git_ignore.d/
 
 etc/.config/*
 
+!etc/.config/ghostty/
 !etc/.config/git/
 !etc/.config/kitty/
 !etc/.config/sway/
