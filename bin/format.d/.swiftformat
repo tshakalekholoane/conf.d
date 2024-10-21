@@ -5,7 +5,7 @@
 --hexliteralcase "lowercase"
 --indent 2
 --self "insert"
---swiftversion 5.8
+--swiftversion 6.0
 --wraparguments "before-first"
 --wrapcollections "before-first"
 --wrapparameters "before-first"
