@@ -1,7 +1,7 @@
 background = f8f5d7
 foreground = 1f1d1a
 
-selection-foreground =
+selection-foreground = 1f1d1a
 selection-background = bfccba
 
 palette = 0=#f8f5d7
