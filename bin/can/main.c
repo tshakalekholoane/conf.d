@@ -87,7 +87,6 @@ int main(int argc, char* argv[argc + 1]) {
 
   const char** filenames = argv + 1;
   size_t filenames_len = (size_t)argc - 1;
-
   for (size_t i = 0; i < filenames_len; i++) {
     const char* filename = filenames[i];
     if (strcmp(filename, ".") == 0 || strcmp(filename, "..") == 0 || strcmp(filename, "/") == 0) {
