@@ -16,6 +16,7 @@ agents = [
 static_executables = [
     ("can", ["make"]),
     ("markdown_to_html", ["go",  "build", "-o", "../markdown_to_html.exe", "."]),
+    ("note", ["go",  "build", "-o", "../note.exe", "."]),
 ]
 
 
