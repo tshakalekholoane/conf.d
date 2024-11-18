@@ -42,7 +42,7 @@ local servers = {
   "golangci_lint_ls",
   "html",
   "pyright",
-  "ruff_lsp",
+  "ruff",
 }
 for _, server in ipairs(servers) do
   configuration[server].setup {
