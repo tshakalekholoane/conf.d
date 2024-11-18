@@ -3,7 +3,6 @@ local function toggle_diagnostics()
   vim.opt.spell = not vim.opt.spell:get()
 end
 
-vim.keymap.set("n", "<Leader>a", "1<C-a>")
 vim.keymap.set("n", "<Leader>d", toggle_diagnostics)
 vim.keymap.set("n", "<Leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<Leader>o", ":only<CR>")
