@@ -1,9 +1,11 @@
-set --local arch (uname -m)
-set --local kernel (uname)
-
-if test $kernel = Linux
-    abbr --add --global can "gio trash"
+switch (uname)
+    case Linux
+        source ~/.config/fish/config_linux.fish
+    case Darwin
+        source ~/.config/fish/config_darwin.fish
+    case "*"
 end
+
 abbr --add --global f format
 abbr --add --global less "less -FIRX"
 abbr --add --global ll "ls -lhAF"
@@ -13,19 +15,15 @@ abbr --add --global p python3
 abbr --add --global v nvim
 abbr --add --global vf "nvim (fzf --scheme path)"
 
-set --export dl ~/Downloads
-set --export dsk ~/Desktop
-set --export x ~/x
-
 set --export CLICOLOR 1
 set --export EDITOR (which nvim)
 set --export FZF_DEFAULT_COMMAND "fd --type file --follow --hidden --exclude .git"
 set --export GNUPGHOME ~/.config/gnupg
 set --export GPG_TTY (tty)
+set --export dl ~/Downloads
+set --export dsk ~/Desktop
+set --export x ~/x
 
-if test $kernel = Darwin -a $arch = arm64
-    fish_add_path --global /opt/homebrew/bin /opt/homebrew/sbin
-end
 fish_add_path --global ~/.cargo/bin ~/bin ~/go/bin
 
 fish_hybrid_key_bindings
