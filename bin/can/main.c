@@ -1,3 +1,7 @@
+#ifndef __APPLE__
+#error "This program is intended to only run on macOS."
+#endif
+
 #include <errno.h>
 #include <getopt.h>
 #include <objc/message.h>
@@ -6,11 +10,11 @@
 #include <string.h>
 #include <unistd.h>
 
-#ifndef BUILD
-#define BUILD "HEAD"
+#ifndef CAN_BUILD
+#define CAN_BUILD "HEAD"
 #endif
 
-static const char* usage = "usage: can [-h | -V] file ...";
+static const char* usage = "usage: can [-h | -V] [--] file ...";
 
 // Objective-C messaging primitives require that functions be cast to an
 // appropriate function pointer type before being called.
@@ -55,41 +59,29 @@ static struct objc_object* url_file_url_with_path(struct objc_object* string) {
 
 int main(int argc, char* argv[argc + 1]) {
   int opt;
-  bool help = false, version = false;
   while ((opt = getopt(argc, argv, "hV")) != -1) {
     switch (opt) {
     case 'h':
-      help = true;
-      break;
+      printf("%s\n", usage);
+      return EXIT_SUCCESS;
     case 'V':
-      version = true;
-      break;
+      printf("can %s\n", CAN_BUILD);
+      return EXIT_SUCCESS;
     default:
       fprintf(stderr, "%s\n", usage);
       return EXIT_FAILURE;
     }
   }
-
-  if (argc == 1) {
+  if (__builtin_expect(argc == 1, false)) {
     fprintf(stderr, "%s\n", usage);
     return EXIT_FAILURE;
   }
+  argc--;
+  argv++;
 
-  if (help) {
-    printf("%s\n", usage);
-    return EXIT_SUCCESS;
-  }
-
-  if (version) {
-    printf("can %s\n", BUILD);
-    return EXIT_SUCCESS;
-  }
-
-  const char** filenames = argv + 1;
-  size_t filenames_len = (size_t)argc - 1;
-  for (size_t i = 0; i < filenames_len; i++) {
-    const char* filename = filenames[i];
-    if (strcmp(filename, ".") == 0 || strcmp(filename, "..") == 0 || strcmp(filename, "/") == 0) {
+  for (ssize_t i = 0; i < (ssize_t)argc; i++) {
+    const char* name = argv[i];
+    if (__builtin_expect(strcmp(name, ".") == 0 || strcmp(name, "..") == 0 || strcmp(name, "/") == 0, false)) {
       fprintf(stderr, "\"/\", \".\", and \"..\" may not be removed.\n");
       return EXIT_FAILURE;
     }
@@ -97,21 +89,28 @@ int main(int argc, char* argv[argc + 1]) {
 
   // Avoid using the root user's trash when invoked with sudo.
   const char* superuser = getenv("SUDO_USER");
-  if (superuser) {
+  if (__builtin_expect(superuser != NULL, false)) {
     struct passwd* entry = getpwnam(superuser);
-    if (!entry || seteuid(entry->pw_uid)) {
+    if (__builtin_expect(!entry || seteuid(entry->pw_uid), false)) {
       fprintf(stderr, "%s\n", strerror(errno));
       return EXIT_FAILURE;
     }
   }
 
+  // Ignore flag separator.
+  if (__builtin_expect(strcmp(argv[0], "--") == 0, false)) {
+    argc--;
+    argv++;
+  }
+
   int exit_code = EXIT_SUCCESS;
   struct objc_object* file_manager = file_manager_default_manager();
-  for (size_t i = 0; i < filenames_len; i++) {
-    struct objc_object* path = file_manager_string_with_file_system_representation(file_manager, filenames[i]);
+  for (ssize_t i = 0; i < (ssize_t)argc; i++) {
+    const char* name = argv[i];
+    struct objc_object* path = file_manager_string_with_file_system_representation(file_manager, name);
     struct objc_object* url = url_file_url_with_path(path);
     struct objc_object* error;
-    if (!file_manager_trash_item_at_url(file_manager, url, &error)) {
+    if (__builtin_expect(!file_manager_trash_item_at_url(file_manager, url, &error), false)) {
       struct objc_object* description = error_localized_description(error);
       fprintf(stderr, "%s\n", string_utf8_string(description));
       exit_code = EXIT_FAILURE;
