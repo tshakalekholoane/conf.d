@@ -1,7 +1,6 @@
 # Default.
 --binarygrouping 4
 --decimalgrouping 3
---header "strip"
 --hexliteralcase "lowercase"
 --indent 2
 --self "insert"
