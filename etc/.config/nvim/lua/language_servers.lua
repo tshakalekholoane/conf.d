@@ -43,6 +43,7 @@ local servers = {
   "html",
   "pyright",
   "ruff",
+  "sourcekit",
 }
 for _, server in ipairs(servers) do
   configuration[server].setup {
