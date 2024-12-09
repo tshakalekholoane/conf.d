@@ -169,6 +169,11 @@ local groups = {
   TelescopeBorder          = { fg = "#d7d4ba" },
   TelescopeSelection       = { bg = "#ece9d2", fg = "#1f1d1a" },
   TelescopeTitle           = { bold = true, fg = "#66655d" },
+
+  -- See treesitter-highlight-groups.
+  ["@comment.error"]       = { link = "@comment.todo" },
+  ["@comment.note"]        = { link = "@comment.todo" },
+  ["@comment.warning"]     = { link = "@comment.todo" },
 }
 
 vim.opt.background = "light"
