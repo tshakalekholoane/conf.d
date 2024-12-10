@@ -155,6 +155,7 @@ local groups = {
   DiagnosticError          = { bg = "#edd4ba", fg = "#1f1d1a" },
   DiagnosticWarn           = { bg = "#f5e0a9", fg = "#1f1d1a" },
   DiagnosticHint           = { bg = "#f5e0a9", fg = "#1f1d1a" },
+  DiagnosticInfo           = { bg = "#e4e5c8", fg = "#1f1d1a" },
   DiagnosticUnderlineError = { sp = "#af1f1b", underline = true },
   DiagnosticUnderlineWarn  = { sp = "#f2cc7c", underline = true },
   DiagnosticUnderlineHint  = { sp = "#f2cc7c", underline = true },
