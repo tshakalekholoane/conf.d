@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern  = "*",
 })
 
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "VimLeavePre" }, {
   callback = function()
     if vim.bo.buftype ~= "" then
       return
