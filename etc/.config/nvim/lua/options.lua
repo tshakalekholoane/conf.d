@@ -1,3 +1,8 @@
+-- See fold-foldtext.
+function foldtext()
+  return ""
+end
+
 vim.diagnostic.config({
   signs = {
     text = {
@@ -18,9 +23,12 @@ vim.opt.colorcolumn          = "72,80"
 vim.opt.completeopt          = { "menuone", "noselect" }
 vim.opt.cursorline           = true
 vim.opt.encoding             = "utf-8"
+vim.opt.fillchars            = "foldsep: "
+vim.opt.foldcolumn           = "auto"
 vim.opt.foldenable           = false
-vim.opt.foldexpr             = "nvim_treesitter#foldexpr()"
-vim.opt.foldmethod           = "expr"
+vim.opt.foldmethod           = "indent"
+vim.opt.foldnestmax          = 1
+vim.opt.foldtext             = "v:lua.foldtext()"
 vim.opt.hlsearch             = false
 vim.opt.ignorecase           = true
 vim.opt.inccommand           = "split"

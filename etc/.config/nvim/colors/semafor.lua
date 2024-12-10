@@ -73,9 +73,9 @@ local groups = {
   -- TODO: ErrorMsg.
 
   WinSeparator             = { fg = "#d7d4ba" },
+  Folded                   = { bg = "#edeacd", fg = "#a3a194" },
+  FoldColumn               = { fg = "#1f1d1a" },
 
-  -- TODO: Folded.
-  -- TODO: FoldedColumn.
   -- TODO: SignColumn.
 
   IncSearch                = { bg = "#ffff00", fg = "#1f1d1a", bold = true },
