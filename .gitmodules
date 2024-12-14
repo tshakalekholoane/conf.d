@@ -1,0 +1,4 @@
+[submodule "bin/can"]
+  branch = tshaka/local
+  path   = bin/can
+  url    = https://github.com/tshakalekholoane/can
