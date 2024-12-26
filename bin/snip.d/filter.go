@@ -1,4 +1,4 @@
-func filter[T any](a []*T, f func(v *T) bool) []*T {
+func filter[T any](a []T, f func(v T) bool) []T {
 	i := 0
 	for _, v := range a {
 		if !f(v) {
