@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-# Prevents Grub's timed display.
+# Disables Grub's timed display.
+
+source "std/log.bash"
 
 if [[ "$(uname)" != "Linux" ]]; then
-  printf "%s: incompatible system\n" "$(basename "$0")"
-  exit 1
+  log::set_prefix "$(basename "$0"): "
+  log::fatalf "incompatible operating system\n"
 fi
 sudo sed --in-place 's/^GRUB_TIMEOUT=[0-9]\+/GRUB_TIMEOUT=-1/' /etc/default/grub
 sudo grub2-mkconfig -o /etc/grub2-efi.cfg

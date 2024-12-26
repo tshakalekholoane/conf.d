@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 # Update the default GRUB entry.
 
+source "std/log.bash"
+
+readonly PROGRAM="$(basename "$0")"
+
+log::set_prefix "${PROGRAM}: "
+
 if [[ "$(uname)" != "Linux" ]]; then
-  printf "%s: incompatible system\n" "$(basename "$0")" >&2
-  exit 1
+  log::fatalf "incompatible operating system\n"
 fi
 
 if ! [[ "$#" -eq 1 && "$1" =~ ^[1-9][0-9]*$ ]]; then
-  printf "usage: %s index\n" "$(basename "$0")" >&2
+  printf "usage: ${PROGRAM} index\n"
   exit 1
 fi
 

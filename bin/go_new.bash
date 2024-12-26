@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # Creates a new Go project.
 
+source "std/log.bash"
+
 readonly PROGRAM="$(basename "$0")"
 
 usage() {
-  printf "usage: %s [-hl] module\n" "${PROGRAM}"
+  printf "usage: ${PROGRAM} [-hl] module\n"
 }
 
 module() {
@@ -14,15 +16,16 @@ module() {
 }
 
 main() {
-  LIBRARY=0
-  while getopts "hl" OPTION; do
-    case "${OPTION}" in
+  log::set_prefix "${PROGRAM}: "
+  library=0
+  while getopts "hl" opt; do
+    case "${opt}" in
       h)
         usage
         exit
         ;;
       l)
-        LIBRARY=1
+        library=1
         ;;
       *)
         usage >&2
@@ -41,11 +44,10 @@ main() {
   readonly DIRECTORY="${HOME}/conf.d/bin/go_new.d"
   readonly PACKAGE="$(basename "$1")"
   if [[ -d "${PACKAGE}" ]]; then
-    printf "%s: directory with the same name already exists: %s\n" "${PROGRAM}" "${PACKAGE}" >&2
-    exit 1
+    log::fatalf "directory with the same name already exists: ${PACKAGE}\n"
   fi
   module "${PACKAGE}" "$1"
-  if [[ "${LIBRARY}" -eq 1 ]]; then
+  if [[ "${library}" -eq 1 ]]; then
     cp "${DIRECTORY}/package.go" "${PACKAGE}.go"
     cp "${DIRECTORY}/package_test.go" "${PACKAGE}_test.go"
     sed -i '' "s/sample_package_name/${PACKAGE}/" "${PACKAGE}.go"
