@@ -22,9 +22,6 @@ etc/.config/gnupg/*
 !etc/.config/gnupg/gpg.conf
 !etc/.config/gnupg/gpg-agent.conf
 
-!etc/.config/helix/
-etc/.config/helix/runtime
-
 !etc/.config/nvim/
 etc/.config/nvim/lazy-lock.json
 etc/.config/nvim/lua/.luarc.json
