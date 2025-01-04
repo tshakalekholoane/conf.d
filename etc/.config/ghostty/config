@@ -985,7 +985,7 @@ window-padding-color = background
 #
 # This setting is only supported currently on macOS.
 
-window-vsync = true
+window-vsync = false
 
 # If true, new windows and tabs will inherit the working directory of
 # the previously focused window. If no window was previously focused,
