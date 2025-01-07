@@ -62,13 +62,8 @@ configuration.gopls.setup({
   settings            = {
     gopls = {
       analyses    = {
-        fieldalignment = true,
-        nilness        = true,
         shadow         = true,
-        unusedparams   = true,
         unusedvariable = true,
-        unusedwrite    = true,
-        useany         = true,
       },
       gofumpt     = true,
       staticcheck = true,
