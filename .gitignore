@@ -12,6 +12,7 @@ etc/.config/*
 !etc/.config/kitty/
 !etc/.config/sway/
 !etc/.config/tmux/
+!etc/.config/yt-dlp/
 
 !etc/.config/fish/
 etc/.config/fish/completions/

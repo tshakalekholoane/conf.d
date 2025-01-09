@@ -37,6 +37,7 @@ brew "swiftlint"
 brew "tmux"
 brew "vscode-langservers-extracted"
 brew "webp"
+brew "yt-dlp"
 
 cask "discord"
 cask "figma"

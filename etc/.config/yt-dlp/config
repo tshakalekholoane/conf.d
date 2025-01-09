@@ -1,0 +1,3 @@
+--buffer-size 16384
+--embed-subs
+--format "bestvideo+bestaudio"
