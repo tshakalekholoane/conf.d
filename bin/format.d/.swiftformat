@@ -1,5 +1,6 @@
 # Default.
 --binarygrouping 4
+--condassignment "always"
 --decimalgrouping 3
 --hexliteralcase "lowercase"
 --indent 2
@@ -18,3 +19,4 @@
 
 # Opt-out.
 --disable trailingClosures
+--disable wrapMultilineConditionalAssignment
