@@ -2,10 +2,11 @@
 # Generates a configuration file for the language (formatter) specified
 # in the current directory.
 
-source "std/log.bash"
-
-readonly DIRECTORY="${HOME}/conf.d/bin/format.d"
+readonly ROOT="${HOME}/conf.d/bin"
+readonly DIRECTORY="${ROOT}/format.d"
 readonly PROGRAM="$(basename "$0")"
+
+source "${ROOT}/include/log.bash"
 
 declare -A configuration_file
 configuration_file["c"]=".clang-format"

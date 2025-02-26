@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Update the default GRUB entry.
 
-source "std/log.bash"
-
 readonly PROGRAM="$(basename "$0")"
+
+source "${HOME}/conf.d/bin/include/log.bash"
 
 log::set_prefix "${PROGRAM}: "
 

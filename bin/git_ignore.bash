@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # Generate a gitignore file in the current directory.
 
-source "std/log.bash"
-
+readonly ROOT="${HOME}/conf.d/bin"
+readonly REPOSITORY="${ROOT}/git_ignore.d"
 readonly PROGRAM="$(basename "$0")"
-readonly REPOSITORY="${HOME}/conf.d/bin/git_ignore.d"
+
+source "${ROOT}/include/log.bash"
 
 usage() {
   printf "usage: ${PROGRAM} [-hl] template\n\n"

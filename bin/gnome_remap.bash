@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Swaps Caps Lock with Esc in GNOME.
 
-source "std/log.bash"
+source "${HOME}/conf.d/bin/include/log.bash"
 
 if [[ "$(uname)" != "Linux" ]]; then
   log::set_prefix "$(basename "$0"): "

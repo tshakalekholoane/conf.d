@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Disables Grub's timed display.
 
-source "std/log.bash"
+source "${HOME}/conf.d/bin/include/log.bash"
 
 if [[ "$(uname)" != "Linux" ]]; then
   log::set_prefix "$(basename "$0"): "

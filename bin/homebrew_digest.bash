@@ -2,9 +2,9 @@
 # Generate the digest of a tar archive from its URL and copy it to the
 # clipboard.
 
-source "std/log.bash"
-
 readonly PROGRAM="$(basename "$0")"
+
+source "${HOME}/conf.d/bin/include/log.bash"
 
 usage() {
   printf "usage: ${PROGRAM} [-h] url\n"

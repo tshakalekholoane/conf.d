@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Creates a new Go project.
 
-source "std/log.bash"
-
 readonly PROGRAM="$(basename "$0")"
+
+source "${HOME}/conf.d/bin/include/log.bash"
 
 usage() {
   printf "usage: ${PROGRAM} [-hl] module\n"
@@ -44,7 +44,7 @@ main() {
   readonly DIRECTORY="${HOME}/conf.d/bin/go_new.d"
   readonly PACKAGE="$(basename "$1")"
   if [[ -d "${PACKAGE}" ]]; then
-    log::fatalf "directory with the same name already exists: ${PACKAGE}\n"
+    log::fatalf "directory with the same name already exists\n"
   fi
   module "${PACKAGE}" "$1"
   if [[ "${library}" -eq 1 ]]; then

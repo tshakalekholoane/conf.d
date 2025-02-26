@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # Generates a licence file specified in the current directory.
 
-source "std/log.bash"
-
-readonly DIRECTORY="${HOME}/conf.d/bin/licence.d"
+readonly ROOT="${HOME}/conf.d/bin"
+readonly DIRECTORY="${ROOT}/licence.d"
 readonly PROGRAM="$(basename "$0")"
+
+source "${ROOT}/include/log.bash"
 
 declare -A licence
 licence["isc"]="isc.txt"
