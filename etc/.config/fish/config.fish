@@ -33,8 +33,6 @@ fish_hybrid_key_bindings
 set fish_cursor_default block
 set fish_cursor_insert line
 set fish_cursor_replace_one underscore
-function fish_mode_prompt
-end
 
 gpgconf --launch gpg-agent
 umask 0002
