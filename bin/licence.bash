@@ -47,3 +47,5 @@ main() {
   fi
   printf "$(cat "${DIRECTORY}/${FILENAME}")" "$(date +%Y)" "Tshaka Lekholoane" > LICENCE
 }
+
+main "$@"
