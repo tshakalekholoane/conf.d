@@ -24,7 +24,7 @@ main() {
         exit
         ;;
       l)
-        printf "${!licence[@]}" | tr ' ' '\n'
+        echo "${!licence[@]}" | tr ' ' '\n'
         exit
         ;;
       \?)
