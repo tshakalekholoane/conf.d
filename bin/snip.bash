@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# Print code snippets to standard output.
+# Print code snippets.
 
-source "std/log.bash"
-
-readonly DIRECTORY="${HOME}/conf.d/bin/snip.d"
 readonly PROGRAM="$(basename "$0")"
+readonly ROOT="${HOME}/conf.d/bin"
+readonly DIRECTORY="${ROOT}/snip.d"
+
+source "${ROOT}/include/log.bash"
 
 usage() {
   printf "usage: ${PROGRAM} [-hl] <snippet>\n"
