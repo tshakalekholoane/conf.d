@@ -7,7 +7,7 @@ abbr --add --global f format
 abbr --add --global less "less -FIRX"
 abbr --add --global ll "ls -lhAF"
 abbr --add --global ls "ls -F"
-abbr --add --global m md
+abbr --add --global m mkdir_and_cd
 abbr --add --global p python3
 abbr --add --global v nvim
 abbr --add --global vf "nvim (fzf --scheme path)"
