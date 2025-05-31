@@ -1,2 +1,63 @@
+# See https://tshaka.dev/a/18JJW37.
+
+AlignAfterOpenBracket:  BlockIndent
+AlignArrayOfStructures: Right
+AlignConsecutiveAssignments:
+  AlignCompound: true
+  Enabled:       true
+  PadOperators:  true
+AlignConsecutiveBitFields: Consecutive
+AlignConsecutiveMacros:    Consecutive
+AlignConsecutiveShortCaseStatements:
+  AlignCaseArrows: true
+  Enabled: true
+AlignEscapedNewlines: LeftWithLastLine
+
+AllowShortBlocksOnASingleLine:     Empty
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine:  Empty
+
+BitFieldColonSpacing: After
+
+BracedInitializerIndentWidth: 2
+
+BreakArrays:                    false
+BreakAfterReturnType:           Automatic
+BreakBeforeConceptDeclarations: Allowed
+BreakBeforeTernaryOperators:    false
+
 ColumnLimit: 0
+
+ContinuationIndentWidth: 2
+
+# TODO: clang-format 21.
+# EnumTrailingComma: Remove
+
+IncludeBlocks: Regroup
+
+IndentGotoLabels:   false
+IndentPPDirectives: BeforeHash
+IndentRequires:     false
+
+InsertNewlineAtEOF:   false
+IntegerLiteralSeparator:
+  Binary:  4
+  Decimal: 3
+  Hex:     -1
+
 PointerAlignment: Left
+
+RemoveEmptyLinesInUnwrappedLines: true
+
+RequiresClausePosition: SingleLine
+
+SeparateDefinitionBlocks: Always
+
+SortUsingDeclarations: Lexicographic
+
+SpaceAfterCStyleCast:        true
+SpaceAfterTemplateKeyword:   false
+SpaceBeforeInheritanceColon: false
+SpacesInContainerLiterals:   false
+
+Standard: Latest
