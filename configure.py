@@ -118,19 +118,26 @@ def unload_launch_agents():
 
 def main():
     parser = ArgumentParser(prog="configure", description="configure current system")
-    parser.add_argument("-i", action="store_true", help="install configuration files")
-    parser.add_argument("-u", action="store_true", help="uninstall configuration files")
+    subparsers = parser.add_subparsers(
+        dest="subcommand", help="install/uninstall configuration files"
+    )
+
+    _ = subparsers.add_parser("install")
+    _ = subparsers.add_parser("uninstall")
+
     arguments = parser.parse_args()
-    if arguments.i:
-        build_executables()
-        link_executables()
-        link_configuration_files()
-    elif arguments.u:
-        unlink_executables()
-        unlink_configuration_files()
-    else:
-        parser.print_help(file=sys.stderr)
-        return 2
+
+    match arguments.subcommand:
+        case "install":
+            build_executables()
+            link_executables()
+            link_configuration_files()
+        case "uninstall":
+            unlink_executables()
+            unlink_configuration_files()
+        case _:
+            parser.print_help(file=sys.stderr)
+            return 2
 
 
 if __name__ == "__main__":

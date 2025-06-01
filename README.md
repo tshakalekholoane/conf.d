@@ -1,5 +1,5 @@
 # `conf.d`
 
 ```
-usage: configure [-h] [-b] [-i] [-u]
+usage: configure [-h] {install,uninstall}
 ```
