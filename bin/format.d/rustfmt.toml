@@ -1,4 +1,5 @@
-# See the following for reference https://rust-lang.github.io/rustfmt/.
+# See https://tshaka.dev/a/1J8WSY3.
+
 comment_width = 72
 condense_wildcard_suffixes = true
 edition = "2021"

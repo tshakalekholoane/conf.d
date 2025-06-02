@@ -5,9 +5,7 @@
 # - Esc       -> Caps Lock
 # - Caps Lock -> Esc
 #
-# See the following [1] for reference.
-#
-# [1]: https://tshaka.dev/a/jb3j7x
+# See https://tshaka.dev/a/JB3J7X.
 
 read -d '' mapping << _EOF_
 {
