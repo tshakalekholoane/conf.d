@@ -13,10 +13,10 @@ abbr --add --global v nvim
 abbr --add --global vf "nvim (fzf --scheme path)"
 
 if test $kernel = darwin
+    set --export EDITOR /opt/homebrew/bin/nvim
     set --export GOARM64 v8.5,lse,crypto
 end
 set --export CLICOLOR 1
-set --export EDITOR (which nvim)
 set --export FZF_DEFAULT_COMMAND "fd --type file --follow --hidden --exclude .git"
 set --export GNUPGHOME ~/.config/gnupg
 set --export GPG_TTY (tty)
