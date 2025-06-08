@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "tdewolff/tap"
 
 brew "bash"
+brew "clang-format"
 brew "fd"
 brew "ffmpeg"
 brew "fish"
