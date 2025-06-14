@@ -9,6 +9,7 @@ abbr --add --global ll "ls -lhAF"
 abbr --add --global ls "ls -F"
 abbr --add --global m mkdir_and_cd
 abbr --add --global p python3
+abbr --add --global t tiny
 abbr --add --global v nvim
 abbr --add --global vf "nvim (fzf --scheme path)"
 
