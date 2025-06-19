@@ -13,8 +13,9 @@ theme = semafor
 
 mouse-scroll-multiplier = 1
 
+background-opacity     = 0.95
+background-blur-radius = 20
 
-background-opacity = 1
 command = /opt/homebrew/bin/fish
 
 keybind = ctrl+a>h=goto_split:left
