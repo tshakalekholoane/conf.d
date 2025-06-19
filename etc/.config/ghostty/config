@@ -29,6 +29,9 @@ window-vsync     = false
 
 click-repeat-interval = 500
 
+macos-titlebar-style = native
+macos-option-as-alt  = left
+macos-icon           = blueprint
 
 auto-update         = download
 auto-update-channel = tip
