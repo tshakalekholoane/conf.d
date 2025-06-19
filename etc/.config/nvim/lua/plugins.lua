@@ -13,8 +13,9 @@ end
 vim.opt.rtp:prepend(path)
 
 local plugins = {
-  { "lewis6991/gitsigns.nvim", opts = {} },
-  { "mrcjkb/rustaceanvim",     version = "^5", ft = { "rust" } },
+  { "bezhermoso/tree-sitter-ghostty", build = "make nvim_install", ft = "ghostty" },
+  { "lewis6991/gitsigns.nvim",        opts = {} },
+  { "mrcjkb/rustaceanvim",            version = "^5",              ft = { "rust" } },
   "neovim/nvim-lspconfig",
   {
     "nvim-telescope/telescope.nvim",
