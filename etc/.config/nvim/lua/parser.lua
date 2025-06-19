@@ -32,6 +32,7 @@ local options = {
     "markdown",
     "markdown_inline",
     "nginx",
+    "objdump",
     "python",
     "rust",
     "sql",
