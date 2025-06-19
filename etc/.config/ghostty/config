@@ -30,6 +30,7 @@ window-vsync     = false
 click-repeat-interval = 500
 
 
+auto-update         = download
+auto-update-channel = tip
 
-auto-update = check
 # vim: filetype=ghostty
