@@ -14,7 +14,6 @@ agents = [
 ]
 
 static_executables = [
-    ("can", ["make"]),
     ("note", ["go", "build", "-o", "../note.exe", "."]),
 ]
 

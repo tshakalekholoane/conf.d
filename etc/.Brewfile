@@ -1,7 +1,9 @@
 tap "homebrew/bundle"
 tap "tdewolff/tap"
+tap "tshakalekholoane/taps"
 
 brew "bash"
+brew "can"
 brew "clang-format"
 brew "fd"
 brew "ffmpeg"
