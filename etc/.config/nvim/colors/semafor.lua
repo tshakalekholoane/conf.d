@@ -1,7 +1,7 @@
--- Name:        Semafor
--- Author:      Tshaka Lekholoane <mail+git@tshaka.dev>
--- Website:     https://github.com/tshakalekholoane/conf.d
--- License:     ISC
+-- Name:    Semafor
+-- Author:  Tshaka Lekholoane <mail+git@tshaka.dev>
+-- Website: https://github.com/tshakalekholoane/conf.d
+-- License: ISC
 
 local groups = {
   -- See group-name.
