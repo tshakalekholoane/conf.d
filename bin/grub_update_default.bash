@@ -3,7 +3,7 @@
 
 readonly PROGRAM="$(basename "$0")"
 
-source "${HOME}/conf.d/bin/include/log.bash"
+source "${HOME}/rc.d/bin/include/log.bash"
 
 log::set_prefix "${PROGRAM}: "
 

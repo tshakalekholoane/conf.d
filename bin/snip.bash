@@ -2,7 +2,7 @@
 # Print code snippets.
 
 readonly PROGRAM="$(basename "$0")"
-readonly ROOT="${HOME}/conf.d/bin"
+readonly ROOT="${HOME}/rc.d/bin"
 readonly DIRECTORY="${ROOT}/snip.d"
 
 source "${ROOT}/include/log.bash"

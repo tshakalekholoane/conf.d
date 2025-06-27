@@ -2,7 +2,7 @@
 # Generates a configuration file for the language (formatter) specified
 # in the current directory.
 
-readonly ROOT="${HOME}/conf.d/bin"
+readonly ROOT="${HOME}/rc.d/bin"
 readonly DIRECTORY="${ROOT}/format.d"
 readonly PROGRAM="$(basename "$0")"
 

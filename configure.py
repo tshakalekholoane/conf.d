@@ -8,17 +8,22 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 HOME = Path.home()
+HOME_BIN = HOME / "bin"
+LAUNCH_AGENTS = HOME / "Library" / "LaunchAgents"
+RC = HOME / "rc.d"
+RC_BIN = RC / "bin"
+RC_ETC = RC / "etc"
 
-agents = [
-    HOME / "conf.d" / "opt" / "dev.tshaka.remap.plist",
+AGENTS = [
+    RC / "opt" / "dev.tshaka.remap.plist",
 ]
 
-static_executables = [
+STATIC_EXECUTABLES = [
     ("note", ["go", "build", "-o", "../note.exe", "."]),
 ]
 
 
-def is_executable(path):
+def _should_link(path):
     if path.is_dir():
         # Link bash libraries in std.
         if path.stem == "std":
@@ -30,16 +35,15 @@ def is_executable(path):
 
 
 def build_executables():
-    executables = HOME / "conf.d" / "bin"
-    for program, build in static_executables:
-        subprocess.run(build, check=True, cwd=executables / program)
+    for program, build in STATIC_EXECUTABLES:
+        subprocess.run(build, check=True, cwd=RC_BIN / program)
 
 
 def link_executables():
-    target_directory = HOME / "bin"
+    target_directory = HOME_BIN
     target_directory.mkdir(exist_ok=True)
-    source_directory = HOME / "conf.d" / "bin"
-    for source in filter(is_executable, source_directory.iterdir()):
+    source_directory = RC_BIN
+    for source in filter(_should_link, source_directory.iterdir()):
         target = target_directory / source.stem
         try:
             target.symlink_to(source)
@@ -56,7 +60,7 @@ def link_configuration_files():
         restore_config = True
 
     target_directory = HOME
-    source_directory = HOME / "conf.d" / "etc"
+    source_directory = RC_ETC
     for source in source_directory.iterdir():
         target = target_directory / source.stem
         try:
@@ -78,18 +82,18 @@ def link_configuration_files():
 
 def load_launch_agents():
     if sys.platform == "darwin":
-        target_directory = HOME / "Library" / "LaunchAgents"
-        for agent in agents:
+        target_directory = LAUNCH_AGENTS
+        for agent in AGENTS:
             shutil.copy(agent, target_directory)
             target = (target_directory / agent.stem).as_posix()
             subprocess.run(["launchctl", "load", target], check=True)
 
 
 def unlink_executables():
-    target_directory = HOME / "bin"
+    target_directory = HOME_BIN
     if not target_directory.exists():
         return
-    source_directory = HOME / "conf.d" / "bin"
+    source_directory = RC_BIN
     for source in source_directory.iterdir():
         target = target_directory / source.stem
         if target.exists():
@@ -98,7 +102,7 @@ def unlink_executables():
 
 def unlink_configuration_files():
     target_directory = HOME
-    source_directory = HOME / "conf.d" / "etc"
+    source_directory = RC_ETC
     for source in source_directory.iterdir():
         target = target_directory / source.stem
         if target.exists():
@@ -107,8 +111,8 @@ def unlink_configuration_files():
 
 def unload_launch_agents():
     if sys.platform == "darwin":
-        target_directory = HOME / "Library" / "LaunchAgents"
-        for agent in agents:
+        target_directory = LAUNCH_AGENTS
+        for agent in AGENTS:
             if agent.exists():
                 target = target_directory / agent.stem
                 subprocess.run(["launchctl", "unload", target.as_posix()], check=True)

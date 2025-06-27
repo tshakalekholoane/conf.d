@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Generate a gitignore file in the current directory.
 
-readonly ROOT="${HOME}/conf.d/bin"
+readonly ROOT="${HOME}/rc.d/bin"
 readonly REPOSITORY="${ROOT}/git_ignore.d"
 readonly PROGRAM="$(basename "$0")"
 

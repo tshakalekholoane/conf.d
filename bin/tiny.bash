@@ -2,7 +2,7 @@
 # Shorten a URL.
 
 readonly PROGRAM="$(basename "$0")"
-readonly ROOT="${HOME}/conf.d/bin"
+readonly ROOT="${HOME}/rc.d/bin"
 readonly SERVICE_URL="https://tshaka.dev/a/" 
 
 source "${ROOT}/include/log.bash"

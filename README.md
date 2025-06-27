@@ -1,5 +1,5 @@
-# `conf.d`
+# `rc.d`
 
 ```
-usage: configure [-h] {install,uninstall}
+usage: configure.py [-h] {install,uninstall}
 ```

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Concatenate video files. The files should have the same encoding.
 
-readonly ROOT="${HOME}/conf.d/bin"
+readonly ROOT="${HOME}/rc.d/bin"
 readonly PROGRAM="$(basename "$0")"
 
 source "${ROOT}/include/log.bash"

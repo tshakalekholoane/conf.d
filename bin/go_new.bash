@@ -3,7 +3,7 @@
 
 readonly PROGRAM="$(basename "$0")"
 
-source "${HOME}/conf.d/bin/include/log.bash"
+source "${HOME}/rc.d/bin/include/log.bash"
 
 usage() {
   printf "usage: ${PROGRAM} [-hl] module\n"
@@ -41,7 +41,7 @@ main() {
     exit
   fi
 
-  readonly DIRECTORY="${HOME}/conf.d/bin/go_new.d"
+  readonly DIRECTORY="${HOME}/rc.d/bin/go_new.d"
   readonly PACKAGE="$(basename "$1")"
   if [[ -d "${PACKAGE}" ]]; then
     log::fatalf "directory with the same name already exists\n"
