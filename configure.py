@@ -81,12 +81,15 @@ def link_configuration_files():
 
 
 def load_launch_agents():
-    if sys.platform == "darwin":
-        target_directory = LAUNCH_AGENTS
-        for agent in AGENTS:
-            shutil.copy(agent, target_directory)
-            target = (target_directory / agent.stem).as_posix()
-            subprocess.run(["launchctl", "load", target], check=True)
+    if sys.platform != "darwin":
+        return
+    target_directory = LAUNCH_AGENTS
+    for agent in AGENTS:
+        target = target_directory / agent.name
+        if target.exists():
+            continue
+        shutil.copy(agent, target_directory)
+        subprocess.run(["launchctl", "load", target.as_posix()], check=True)
 
 
 def unlink_executables():
@@ -110,13 +113,14 @@ def unlink_configuration_files():
 
 
 def unload_launch_agents():
-    if sys.platform == "darwin":
-        target_directory = LAUNCH_AGENTS
-        for agent in AGENTS:
-            if agent.exists():
-                target = target_directory / agent.stem
-                subprocess.run(["launchctl", "unload", target.as_posix()], check=True)
-                target.unlink()
+    if sys.platform != "darwin":
+        return
+    target_directory = LAUNCH_AGENTS
+    for agent in AGENTS:
+        target = target_directory / agent.name
+        if target.exists():
+            subprocess.run(["launchctl", "unload", target.as_posix()], check=True)
+            target.unlink()
 
 
 def main():
@@ -135,9 +139,11 @@ def main():
             build_executables()
             link_executables()
             link_configuration_files()
+            load_launch_agents()
         case "uninstall":
             unlink_executables()
             unlink_configuration_files()
+            unload_launch_agents()
         case _:
             parser.print_help(file=sys.stderr)
             return 2
