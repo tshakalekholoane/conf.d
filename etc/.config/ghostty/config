@@ -13,8 +13,8 @@ theme = semafor
 
 mouse-scroll-multiplier = 1
 
-background-opacity     = 0.95
 background-blur-radius = 20
+background-opacity     = 0.9
 
 command = /opt/homebrew/bin/fish
 
